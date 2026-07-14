@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { ThemeContext } from "./context/ThemeContext";
 
@@ -40,7 +40,7 @@ function App() {
       </button>
 
       <hr />
-
+      
       <Routes>
 
         {/* Public Pages */}
@@ -78,7 +78,6 @@ function App() {
         </Route>
 
       </Routes>
-
     </div>
   );
 }
