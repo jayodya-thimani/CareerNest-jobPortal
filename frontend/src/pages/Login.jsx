@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
 import logo from "../assets/logo.png";
 
 import "./Login.css";
@@ -18,7 +19,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-  // AuthContext
   const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
@@ -34,41 +34,44 @@ function Login() {
           password
         }
       );
-       
-      alert(res.data.message);
-      login(res.data.user);
+
       // Check selected role
       if (role !== res.data.user.role) {
         alert("Selected role does not match your account.");
         return;
       }
 
-      // Save user in AuthContext + localStorage
+      // Save user in AuthContext
       login(res.data.user);
 
-      // Navigate to dashboard
+      alert(res.data.message);
+
+      // Redirect according to role
       if (res.data.user.role === "student") {
 
         navigate("/student/dashboard");
 
       }
+
       else if (res.data.user.role === "employer") {
 
         navigate("/employer/dashboard");
 
       }
+
       else if (res.data.user.role === "admin") {
 
         navigate("/admin/dashboard");
 
       }
 
-    } catch (error) {
+    }
 
-      console.log(error.response);
+    catch (error) {
 
       alert(
-        error.response?.data?.message || "Login Failed"
+        error.response?.data?.message ||
+        "Login Failed"
       );
 
     }
@@ -78,6 +81,7 @@ function Login() {
   return (
 
     <>
+
       <Navbar />
 
       <div className="login-page">
@@ -91,8 +95,7 @@ function Login() {
             <h2>Find Your Dream Job Today</h2>
 
             <p>
-              Connect with thousands of employers and discover
-              internships and career opportunities.
+              Connect with thousands of employers and discover internships and career opportunities.
             </p>
 
           </div>
@@ -105,7 +108,7 @@ function Login() {
 
             <img
               src={logo}
-              alt="logo"
+              alt="CareerNest Logo"
               className="login-logo"
             />
 

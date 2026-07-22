@@ -82,7 +82,9 @@ function Home() {
 
             <p>💰 Paid Internship</p>
 
-            <button>Apply Now</button>
+            <Link to="/login">
+               <button>Apply Now</button>
+            </Link>
         </div>
 
         <div className="job-card">
@@ -97,7 +99,9 @@ function Home() {
 
             <p>💰 LKR 80K - 120K</p>
 
-            <button>Apply Now</button>
+            <Link to="/login">
+               <button>Apply Now</button>
+            </Link>
 
         </div>
 
@@ -113,7 +117,9 @@ function Home() {
 
             <p>💰 Attractive Salary</p>
 
-            <button>Apply Now</button>
+            <Link to="/login">
+              <button>Apply Now</button>
+            </Link>
 
         </div>
 

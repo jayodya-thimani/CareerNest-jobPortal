@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import "./Register.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -15,18 +16,42 @@ function Register() {
     name: "",
     email: "",
     password: "",
-    company: ""
+    company: "",
+    profilePicture: ""
   });
 
   const handleChange = (e) => {
-
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  // Profile Picture Preview
+  const handleProfilePicture = (e) => {
+
+    const file = e.target.files[0];
+
+    if (file) {
+
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+
+        setFormData((prev) => ({
+          ...prev,
+          profilePicture: reader.result
+        }));
+
+      };
+
+      reader.readAsDataURL(file);
+
+    }
 
   };
 
+  // Register User
   const handleRegister = async (e) => {
 
     e.preventDefault();
@@ -35,21 +60,12 @@ function Register() {
       alert("Please select your account type");
       return;
     }
-    // Password must be at least 6 characters
-if (formData.password.length < 6) {
-  alert("Password must be at least 6 characters long.");
-  return;
-}
 
-// Password must contain at least one letter and one number
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
+    if (!formData.name || !formData.email || !formData.password) {
+      alert("Please fill all required fields");
+      return;
+    }
 
-if (!passwordRegex.test(formData.password)) {
-  alert(
-    "Password must contain at least one letter, one number, and be at least 6 characters long."
-  );
-  return;
-}
     try {
 
       const res = await axios.post(
@@ -58,23 +74,24 @@ if (!passwordRegex.test(formData.password)) {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          company: formData.company,
-          role: role
+          role: role,
+          company: role === "employer"
+            ? formData.company
+            : ""
         }
       );
 
       alert(res.data.message);
-      alert("Registration Successful!");
 
-navigate("/login");
+      navigate("/login");
 
-      // Save user (optional
-      
+    }
 
-    } catch (error) {
+    catch (error) {
 
       alert(
-        error.response?.data?.message || "Registration Failed"
+        error.response?.data?.message ||
+        "Registration Failed"
       );
 
     }
@@ -82,9 +99,7 @@ navigate("/login");
   };
 
   return (
-
     <>
-
       <Navbar />
 
       <div className="register-page">
@@ -154,17 +169,13 @@ navigate("/login");
             <input
               type="password"
               name="password"
-              placeholder="Enter Password"
+              placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              minLength="6"
               required
             />
-            <small style={{ color: "#666" }}>
-               Password must be at least 6 characters and contain letters and numbers.
-            </small>
-            {
-              role === "employer" &&
+
+            {role === "employer" && (
 
               <input
                 type="text"
@@ -174,7 +185,29 @@ navigate("/login");
                 onChange={handleChange}
               />
 
-            }
+            )}
+
+            {/* Profile Picture */}
+
+            <label className="profile-label">
+              Upload Profile Picture
+            </label>
+
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleProfilePicture}
+            />
+
+            {formData.profilePicture && (
+
+              <img
+                src={formData.profilePicture}
+                alt="Profile Preview"
+                className="profile-preview"
+              />
+
+            )}
 
             <button
               type="submit"
@@ -190,9 +223,7 @@ navigate("/login");
             Already have an account?
 
             <span onClick={() => navigate("/login")}>
-
               Login
-
             </span>
 
           </p>
@@ -204,7 +235,6 @@ navigate("/login");
       <Footer />
 
     </>
-
   );
 
 }

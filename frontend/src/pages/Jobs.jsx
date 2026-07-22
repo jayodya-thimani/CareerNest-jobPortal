@@ -1,156 +1,220 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import { AuthContext } from "../context/AuthContext";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Jobs.css";
+import logo from "../assets/logo.png";
 
-function Jobs() {
-  const [search, setSearch] = useState("");
+import "./Login.css";
 
-  const jobs = [
-    {
-      id: 1,
-      title: "Software Engineer Intern",
-      company: "ABC Technologies",
-      location: "Colombo",
-      type: "Internship",
-      skills: "React, JavaScript, Node.js",
-    },
-    {
-      id: 2,
-      title: "Data Analyst",
-      company: "Insight Analytics",
-      location: "Kandy",
-      type: "Full Time",
-      skills: "Python, SQL, Power BI",
-    },
-    {
-      id: 3,
-      title: "Frontend Developer",
-      company: "Tech Lanka",
-      location: "Remote",
-      type: "Part Time",
-      skills: "React, CSS, HTML",
-    },
-    {
-      id: 4,
-      title: "Business Intelligence Intern",
-      company: "XYZ Solutions Pvt Ltd",
-      location: "Colombo",
-      type: "Internship",
-      skills: "Excel, SQL, Power BI",
-    },
-    {
-      id: 5,
-      title: "Software Engineer",
-      company: "Tech Solutions Pvt Ltd",
-      location: "Colombo",
-      type: "Full-Time",
-      skills: "React, Node.js, MySQL",
-    },
-    {
-      id: 6,
-      title: "Marketing Executive",
-      company: "Vision Marketing",
-      location: "Negombo",
-      type: "Full-Time",
-      skills: "Plan digital marketing campaigns, manage social media platforms.",
-    },
-    {
-      id: 7,
-      title: "HR Officer",
-      company: "People First Ltd",
-      location: "Kurunegala",
-      type: "Full-Time",
-      skills: "Handle recruitment, employee records, and performance management.",
-    },
-    {
-      id: 8,
-      title: "Network Engineer",
-      company: "NetSecure Technologies",
-      location: "Colombo",
-      type: "Full-Time",
-      skills: "Install, configure, and maintain enterprise network infrastructure.",
-    },
-    {
-      id: 9,
-      title: "Graphic Designer",
-      company: "Pixel Media",
-      location: "Matara",
-      type: "Full-Time",
-      skills: "Create logos, banners, brochures, and social media graphics.",
-    },
-    {
-      id: 10,
-      title: "Project Manager",
-      company: "Global Innovations",
-      location: "Colombo",
-      type: "Full-Time",
-      skills: "Lead software development projects and coordinate cross-functional teams.",
-    },
-    {
-      id: 11,
-      title: "Customer Support Executive",
-      company: "Care Connect",
-      location: "Remote",
-      type: "Full-Time",
-      skills: "Provide customer support via phone, email, and live chat.",
-    },
-    {
-      id: 12,
-      title: "Accountant",
-      company: "Finance Hub",
-      location: "Galle",
-      type: "Full-Time",
-      skills: "Prepare financial statements, budgets, and tax reports.",
-    },
-  ];
+function Login() {
 
-  const filteredJobs = jobs.filter(
-    (job) =>
-      job.title.toLowerCase().includes(search.toLowerCase()) ||
-      job.company.toLowerCase().includes(search.toLowerCase())
-  );
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("student");
+
+  const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        {
+          email,
+          password
+        }
+      );
+
+      alert(res.data.message);
+
+      // Check selected role
+      if (role !== res.data.user.role) {
+
+        alert("Selected role does not match your account.");
+
+        return;
+
+      }
+
+      // Save logged in user
+      login(res.data.user);
+
+      // Redirect according to role
+      if (res.data.user.role === "student") {
+
+        navigate("/student/dashboard");
+
+      }
+
+      else if (res.data.user.role === "employer") {
+
+        navigate("/employer/dashboard");
+
+      }
+
+      else if (res.data.user.role === "admin") {
+
+        navigate("/admin/dashboard");
+
+      }
+
+    }
+
+    catch (error) {
+
+      alert(
+        error.response?.data?.message || "Login Failed"
+      );
+
+    }
+
+  };
 
   return (
+
     <>
       <Navbar />
 
-      <div className="jobs-container">
+      <div className="login-page">
 
-        {/* Hero Banner */}
-        <div className="jobs-banner">
-          <div className="banner-text">
-            <h1>Available Jobs</h1>
-            <p>Find your next career opportunity</p>
+        <div className="left-side">
+
+          <div className="overlay">
+
+            <h1>CareerNest</h1>
+
+            <h2>Find Your Dream Job Today</h2>
+
+            <p>
+
+              Connect with thousands of employers and discover internships and career opportunities.
+
+            </p>
+
           </div>
+
         </div>
 
-        <input
-          className="search-box"
-          type="text"
-          placeholder="Search jobs or companies..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className="right-side">
 
-        <div className="job-list">
-          {filteredJobs.map((job) => (
-            <div className="job-card" key={job.id}>
-              <h2>{job.title}</h2>
-              <h3>{job.company}</h3>
-              <p>📍 {job.location}</p>
-              <p>💼 {job.type}</p>
-              <p>🛠 Skills: {job.skills}</p>
-              <button>Apply Now</button>
-            </div>
-          ))}
+          <div className="login-card">
+
+            <img
+              src={logo}
+              alt="CareerNest Logo"
+              className="login-logo"
+            />
+
+            <h2>Login</h2>
+
+            <form onSubmit={handleLogin}>
+
+              <label>Email</label>
+
+              <input
+                type="email"
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
+                required
+              />
+
+              <label>Password</label>
+
+              <input
+                type="password"
+                placeholder="Enter Password"
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
+                required
+              />
+
+              <label>Login As</label>
+
+              <select
+                value={role}
+                onChange={(e)=>setRole(e.target.value)}
+              >
+
+                <option value="student">
+
+                  Student
+
+                </option>
+
+                <option value="employer">
+
+                  Employer
+
+                </option>
+
+                <option value="admin">
+
+                  Admin
+
+                </option>
+
+              </select>
+
+              <div className="options">
+
+                <label>
+
+                  <input type="checkbox"/>
+
+                  Remember Me
+
+                </label>
+
+                <Link to="/forgetpassword">
+
+                  Forgot Password?
+
+                </Link>
+
+              </div>
+
+              <button type="submit">
+
+                LOGIN
+
+              </button>
+
+            </form>
+
+            <p className="register-text">
+
+              Don't have an account?
+
+              <Link to="/register">
+
+                Register Now
+
+              </Link>
+
+            </p>
+
+          </div>
+
         </div>
 
       </div>
 
       <Footer />
+
     </>
+
   );
+
 }
 
-export default Jobs;
+export default Login;

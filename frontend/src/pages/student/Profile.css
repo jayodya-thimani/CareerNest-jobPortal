@@ -1,0 +1,359 @@
+/* ==========================
+   MAIN PAGE
+========================== */
+
+.student-page {
+
+    min-height: 100vh;
+
+    background: #f5f7fb;
+
+    padding: 40px;
+
+}
+
+
+/* ==========================
+   PAGE HEADER
+========================== */
+
+.page-header {
+
+    background: white;
+
+    padding: 30px;
+
+    margin-top: 70px;
+
+    margin-bottom: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.page-header h1 {
+
+    color: #053275;
+
+    font-size: 36px;
+
+    margin: 20px 0 10px;
+
+}
+
+
+.page-header p {
+
+    color: #666;
+
+    font-size: 18px;
+
+}
+
+
+/* ==========================
+   BACK BUTTON
+========================== */
+
+.back-btn {
+
+    background: #053275;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.back-btn:hover {
+
+    background: #ffd43b;
+
+    color: #053275;
+
+}
+
+
+/* ==========================
+   PROFILE CONTAINER
+========================== */
+
+.profile-container {
+
+    display: grid;
+
+    grid-template-columns: 300px 1fr;
+
+    gap: 30px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* ==========================
+   PROFILE PICTURE
+========================== */
+
+.profile-picture-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.large-profile-picture,
+
+.large-default-profile {
+
+    width: 200px;
+
+    height: 200px;
+
+    border-radius: 50%;
+
+}
+
+
+.large-profile-picture {
+
+    object-fit: cover;
+
+    border: 5px solid #053275;
+
+}
+
+
+.large-default-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #053275;
+
+    color: white;
+
+    font-size: 70px;
+
+}
+
+
+/* ==========================
+   UPLOAD BUTTON
+========================== */
+
+.upload-btn {
+
+    display: inline-block;
+
+    background: #053275;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    text-align: center;
+
+}
+
+
+.upload-btn:hover {
+
+    background: #ffd43b;
+
+    color: #053275;
+
+}
+
+
+/* ==========================
+   FORM
+========================== */
+
+.profile-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.profile-form label {
+
+    color: #053275;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+
+    margin-top: 15px;
+
+}
+
+
+.profile-form input,
+
+.profile-form textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+
+.profile-form textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+
+.profile-form input:focus,
+
+.profile-form textarea:focus {
+
+    border-color: #053275;
+
+    box-shadow:
+
+        0 0 8px rgba(5, 50, 117, 0.2);
+
+}
+
+
+/* ==========================
+   CV NAME
+========================== */
+
+.cv-name {
+
+    color: #053275;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+}
+
+
+/* ==========================
+   SAVE BUTTON
+========================== */
+
+.save-profile-btn {
+
+    background: #053275;
+
+    color: white;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-top: 25px;
+
+}
+
+
+.save-profile-btn:hover {
+
+    background: #ffd43b;
+
+    color: #053275;
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 800px) {
+
+    .student-page {
+
+        padding: 20px;
+
+    }
+
+
+    .profile-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .profile-picture-section {
+
+        margin-bottom: 20px;
+
+    }
+
+}

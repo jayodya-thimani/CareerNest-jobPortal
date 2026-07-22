@@ -4,131 +4,258 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
+
 // ======================
-// Register
+// REGISTER USER
 // ======================
 
 router.post("/register", async (req, res) => {
 
     try {
 
-        const { name, email, password, company, role } = req.body;
+        const {
+            name,
+            email,
+            password,
+            company,
+            role
+        } = req.body;
+
 
         // Check required fields
         if (!name || !email || !password || !role) {
+
             return res.status(400).json({
-                message: "Please fill in all required fields."
+                message: "Please fill all required fields"
             });
+
         }
 
-        // Check if email already exists
-        const existUser = await User.findOne({ email });
 
-        if (existUser) {
+        // Allowed roles
+        const allowedRoles = [
+            "student",
+            "employer",
+            "admin"
+        ];
+
+
+        if (!allowedRoles.includes(role)) {
+
             return res.status(400).json({
-                message: "Email already exists."
+                message: "Invalid role selected"
             });
-        }
-        // Password validation
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
 
-if (!passwordRegex.test(password)) {
-    return res.status(400).json({
-        message: "Password must be at least 6 characters long and contain at least one letter and one number."
-    });
-}
+        }
+
+
+
+        // Check existing email
+
+        const existingUser = await User.findOne({
+            email
+        });
+
+
+        if (existingUser) {
+
+            return res.status(400).json({
+                message: "Email already exists"
+            });
+
+        }
+
+
 
         // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const hashedPassword = await bcrypt.hash(
+            password,
+            10
+        );
+
+
 
         // Create user
+
         const newUser = new User({
+
             name,
+
             email,
+
             password: hashedPassword,
-            company,
+
+            company: company || "",
+
             role
+
         });
+
+
 
         await newUser.save();
 
+
+
         res.status(201).json({
+
             message: "Registration Successful",
+
             user: {
+
                 id: newUser._id,
+
                 name: newUser.name,
+
                 email: newUser.email,
-                role: newUser.role,
-                company: newUser.company
+
+                role: newUser.role
+
             }
+
         });
 
-    } catch (error) {
+
+
+    } catch(error) {
+
+
+        console.log(error);
+
 
         res.status(500).json({
-            message: error.message
+
+            message: "Server Error"
+
         });
 
+
     }
+
 
 });
 
 
+
+
 // ======================
-// Login
+// LOGIN USER
 // ======================
 
-router.post("/login", async (req, res) => {
 
-    try {
+router.post("/login", async (req,res)=>{
 
-        const { email, password } = req.body;
 
-        // Check required fields
-        if (!email || !password) {
+    try{
+
+
+        const {
+            email,
+            password
+        } = req.body;
+
+
+
+        if(!email || !password){
+
             return res.status(400).json({
-                message: "Email and password are required."
+
+                message:"Email and password required"
+
             });
+
         }
+
+
 
         // Find user
-        const user = await User.findOne({ email });
 
-        if (!user) {
+        const user = await User.findOne({
+            email
+        });
+
+
+
+        if(!user){
+
             return res.status(400).json({
-                message: "User not found."
+
+                message:"User not found"
+
             });
+
         }
+
+
 
         // Compare password
-        const isMatch = await bcrypt.compare(password, user.password);
 
-        if (!isMatch) {
+        const passwordMatch =
+            await bcrypt.compare(
+                password,
+                user.password
+            );
+
+
+
+        if(!passwordMatch){
+
             return res.status(400).json({
-                message: "Incorrect password."
+
+                message:"Incorrect password"
+
             });
+
         }
 
-        // Login successful
+
+
+        // Successful login
+
         res.status(200).json({
-            message: "Login Successful",
-            user: {
-                id: user._id,
-                name: user.name,
-                email: user.email,
-                role: user.role,
-                company: user.company
+
+            message:"Login Successful",
+
+            user:{
+
+
+                id:user._id,
+
+                name:user.name,
+
+                email:user.email,
+
+                role:user.role,
+
+                company:user.company
+
+
             }
+
+
         });
 
-    } catch (error) {
+
+
+    }catch(error){
+
+
+        console.log(error);
+
 
         res.status(500).json({
-            message: error.message
+
+            message:"Server Error"
+
         });
+
 
     }
 
+
 });
+
+
 
 module.exports = router;

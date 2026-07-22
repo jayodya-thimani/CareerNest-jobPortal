@@ -1,136 +1,302 @@
-import { useState } from "react";
-import Sidebar from "../../components/Sidebar";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../context/AuthContext";
+import UserProfile from "../../components/UserProfile";
+
+import "./Applicants.css";
+
 
 function Applicants() {
 
-  const [applicants, setApplicants] = useState([
-    {
-      id: 1,
-      name: "Sewmini",
-      university: "University of Colombo",
-      job: "Software Engineer Intern",
-      status: "Pending",
-    },
-    {
-      id: 2,
-      name: "Nimal",
-      university: "University of Peradeniya",
-      job: "Data Analyst",
-      status: "Pending",
-    },
-    {
-      id: 3,
-      name: "Kamal",
-      university: "University of Moratuwa",
-      job: "Web Developer",
-      status: "Pending",
-    },
-  ]);
+    const { user } = useContext(AuthContext);
 
-  function shortlistApplicant(id) {
+    const navigate = useNavigate();
 
-    setApplicants(
-      applicants.map((applicant) =>
-        applicant.id === id
-          ? { ...applicant, status: "Shortlisted" }
-          : applicant
-      )
+
+    const [applicants, setApplicants] = useState(
+
+        JSON.parse(
+
+            localStorage.getItem("applicants")
+
+        ) || []
+
     );
 
-  }
 
-  function rejectApplicant(id) {
+    const updateStatus = (id, newStatus) => {
 
-    setApplicants(
-      applicants.map((applicant) =>
-        applicant.id === id
-          ? { ...applicant, status: "Rejected" }
-          : applicant
-      )
+
+        const updatedApplicants = applicants.map(
+
+            (applicant) =>
+
+                applicant.id === id
+
+                    ? {
+
+                        ...applicant,
+
+                        status: newStatus
+
+                    }
+
+                    : applicant
+
+        );
+
+
+        setApplicants(updatedApplicants);
+
+
+        localStorage.setItem(
+
+            "applicants",
+
+            JSON.stringify(updatedApplicants)
+
+        );
+
+    };
+
+
+    if (!user) {
+
+        return null;
+
+    }
+
+
+    return (
+
+        <div className="employer-page">
+
+
+            <UserProfile />
+
+
+            <div className="page-header">
+
+
+                <button
+
+                    className="back-btn"
+
+                    onClick={() =>
+
+                        navigate("/employer-dashboard")
+
+                    }
+
+                >
+
+                    ← Dashboard
+
+                </button>
+
+
+                <h1>
+
+                    👥 Applicants
+
+                </h1>
+
+
+                <p>
+
+                    Review and manage student applications.
+
+                </p>
+
+
+            </div>
+
+
+            <div className="applicants-container">
+
+
+                {applicants.length === 0 ? (
+
+                    <div className="empty-box">
+
+                        <h2>
+
+                            No Applicants Yet
+
+                        </h2>
+
+
+                        <p>
+
+                            Applicants will appear here when students apply for your jobs.
+
+                        </p>
+
+                    </div>
+
+                ) : (
+
+                    applicants.map((applicant) => (
+
+
+                        <div
+
+                            className="applicant-card"
+
+                            key={applicant.id}
+
+                        >
+
+
+                            <div className="applicant-info">
+
+
+                                <div className="applicant-picture">
+
+                                    {applicant.profilePicture ? (
+
+                                        <img
+
+                                            src={applicant.profilePicture}
+
+                                            alt={applicant.name}
+
+                                        />
+
+                                    ) : (
+
+                                        "👤"
+
+                                    )}
+
+                                </div>
+
+
+                                <div>
+
+
+                                    <h2>
+
+                                        {applicant.name}
+
+                                    </h2>
+
+
+                                    <p>
+
+                                        📧 {applicant.email}
+
+                                    </p>
+
+
+                                    <p>
+
+                                        💼 {applicant.jobTitle}
+
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div className="applicant-actions">
+
+
+                                <span
+
+                                    className={
+
+                                        `application-status ${
+
+                                            applicant.status
+
+                                                ?.toLowerCase()
+
+                                                .replace(" ", "-")
+
+                                        }`
+
+                                    }
+
+                                >
+
+                                    {applicant.status || "Pending"}
+
+                                </span>
+
+
+                                <select
+
+                                    value={
+
+                                        applicant.status || "Pending"
+
+                                    }
+
+                                    onChange={(e) =>
+
+                                        updateStatus(
+
+                                            applicant.id,
+
+                                            e.target.value
+
+                                        )
+
+                                    }
+
+                                >
+
+                                    <option value="Pending">
+
+                                        Pending
+
+                                    </option>
+
+
+                                    <option value="Shortlisted">
+
+                                        Shortlisted
+
+                                    </option>
+
+
+                                    <option value="Rejected">
+
+                                        Rejected
+
+                                    </option>
+
+
+                                    <option value="Selected">
+
+                                        Selected
+
+                                    </option>
+
+                                </select>
+
+
+                            </div>
+
+
+                        </div>
+
+                    ))
+
+                )}
+
+            </div>
+
+
+        </div>
+
     );
-
-  }
-
-  return (
-
-    <div style={{ display: "flex" }}>
-
-      <Sidebar />
-
-      <div style={{ padding: "20px", flex: 1 }}>
-
-        <h1>Applicants</h1>
-
-        <table border="1" cellPadding="10">
-
-          <thead>
-
-            <tr>
-
-              <th>Name</th>
-
-              <th>University</th>
-
-              <th>Applied Job</th>
-
-              <th>Status</th>
-
-              <th>Actions</th>
-
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            {applicants.map((applicant) => (
-
-              <tr key={applicant.id}>
-
-                <td>{applicant.name}</td>
-
-                <td>{applicant.university}</td>
-
-                <td>{applicant.job}</td>
-
-                <td>{applicant.status}</td>
-
-                <td>
-
-                  <button
-                    onClick={() =>
-                      shortlistApplicant(applicant.id)
-                    }
-                  >
-                    Shortlist
-                  </button>
-
-                  {" "}
-
-                  <button
-                    onClick={() =>
-                      rejectApplicant(applicant.id)
-                    }
-                  >
-                    Reject
-                  </button>
-
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-  );
 
 }
+
 
 export default Applicants;

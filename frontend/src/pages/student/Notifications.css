@@ -1,0 +1,295 @@
+/* ==========================
+   MAIN PAGE
+========================== */
+
+.student-page {
+
+    min-height: 100vh;
+
+    background: #f5f7fb;
+
+    padding: 40px;
+
+}
+
+
+/* ==========================
+   PAGE HEADER
+========================== */
+
+.page-header {
+
+    background: white;
+
+    padding: 30px;
+
+    margin-top: 70px;
+
+    margin-bottom: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.page-header h1 {
+
+    color: #053275;
+
+    font-size: 36px;
+
+    margin: 20px 0 10px;
+
+}
+
+
+.page-header p {
+
+    color: #666;
+
+    font-size: 18px;
+
+}
+
+
+/* ==========================
+   BACK BUTTON
+========================== */
+
+.back-btn {
+
+    background: #053275;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.back-btn:hover {
+
+    background: #ffd43b;
+
+    color: #053275;
+
+}
+
+
+/* ==========================
+   ACTIONS
+========================== */
+
+.notification-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 20px;
+
+}
+
+
+.notification-actions button {
+
+    background: #053275;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.notification-actions button:hover {
+
+    background: #ffd43b;
+
+    color: #053275;
+
+}
+
+
+/* ==========================
+   NOTIFICATIONS
+========================== */
+
+.notifications-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+.notification-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+
+}
+
+
+.notification-card:hover {
+
+    transform: translateX(5px);
+
+}
+
+
+.notification-card.unread {
+
+    border-left: 5px solid #053275;
+
+}
+
+
+.notification-card.read {
+
+    opacity: 0.75;
+
+}
+
+
+.notification-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #eaf0ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+}
+
+
+.notification-content {
+
+    flex: 1;
+
+}
+
+
+.notification-content h2 {
+
+    color: #053275;
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.notification-content p {
+
+    color: #666;
+
+    margin-bottom: 8px;
+
+}
+
+
+.notification-content span {
+
+    color: #999;
+
+    font-size: 14px;
+
+}
+
+
+/* ==========================
+   UNREAD DOT
+========================== */
+
+.unread-dot {
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #053275;
+
+    border-radius: 50%;
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 600px) {
+
+    .student-page {
+
+        padding: 20px;
+
+    }
+
+
+    .notification-card {
+
+        align-items: flex-start;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size: 28px;
+
+    }
+
+}
