@@ -1,0 +1,171 @@
+.table-container{
+
+    margin-top:40px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+
+}
+
+.table-container h2{
+
+    margin-bottom:20px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+table th{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+table td{
+
+    padding:15px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+table tr:hover{
+
+    background:#f4f6f9;
+
+}
+.edit-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    margin-right:10px;
+
+}
+
+.delete-btn{
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+}
+/* Status Badge */
+
+.status{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+}
+
+.status.pending{
+
+    background:#FFF3CD;
+
+    color:#856404;
+
+}
+
+.status.approved{
+
+    background:#D1FAE5;
+
+    color:#065F46;
+
+}
+
+.status.disabled{
+
+    background:#FEE2E2;
+
+    color:#991B1B;
+
+}
+.disable-btn{
+
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-right:8px;
+    transition:0.3s;
+
+}
+
+.disable-btn:hover{
+
+    background:#b91c1c;
+
+}
+.approve-btn{
+
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-right:8px;
+    transition:0.3s;
+
+}
+
+.approve-btn:hover{
+
+    background:#15803d;
+
+}

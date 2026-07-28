@@ -24,11 +24,27 @@ import Applications from "./pages/student/Applications";
 import EmployerDashboard from "./pages/employer/EmployerDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
+{/* admin routes */}
+import AdminStudents from "./pages/admin/AdminStudents";
+import AdminEmployers from "./pages/admin/AdminEmployers";
+import AdminJobs from "./pages/admin/AdminJobs";
+import AdminApplications from "./pages/admin/AdminApplications";
 
+import AdminSettings from "./pages/admin/AdminSettings";
+import EditStudent from "./pages/admin/EditStudent";
+import EditEmployer from "./pages/admin/EditEmployer";
+import EditJob from "./pages/admin/EditJob";
+import EditApplication from "./pages/admin/EditApplication";
 // Protected Route
 import ProtectedRoute from "./components/common/ProtectedRoute";
 
 import "./App.css";
+import ManageJobs from "./pages/employer/ManageJobs";
+import PostJob from "./pages/employer/PostJob";
+import Applicants from "./pages/employer/Applicants";
+import Notifications from "./pages/employer/Notifications";
+import Settings from "./pages/employer/Settings";
+import CompanyProfile from "./pages/employer/CompanyProfile";
 
 
 function App() {
@@ -188,23 +204,45 @@ function App() {
               path="/employer/dashboard"
               element={<EmployerDashboard />}
             />
-
+            <Route
+              path="/employer/managejobs"
+              element={<ManageJobs />}
+            />
+            <Route
+              path="/employer/postjob"
+              element={<PostJob />}
+            />
+            <Route
+              path="/employer/applicants"
+              element={<Applicants />}
+            />
+            <Route
+              path="/employer/notifications"
+              element={<Notifications />}
+            />
+            <Route
+              path="/employer/settings"
+              element={<Settings />}
+            />
+            <Route
+              path="/employer/profile"
+              element={<CompanyProfile />}
+            />
+          
           </Route>
-
-
-
 
           <Route element={<ProtectedRoute role="admin" />}>
-
-            <Route
-              path="/admin/dashboard"
-              element={<AdminDashboard />}
-            />
-
-          </Route>
-
-
-
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/students" element={<AdminStudents />} />
+        <Route path="/admin/employers" element={<AdminEmployers />} />
+        <Route path="/admin/jobs" element={<AdminJobs />} />
+        <Route path="/admin/applications" element={<AdminApplications />} />
+        <Route path="/admin/settings" element={<AdminSettings />} />
+        <Route path="/admin/students/edit/:id" element={<EditStudent />} />
+        <Route path="/admin/employers/edit/:id" element={<EditEmployer />} />
+        <Route path="/admin/jobs/edit/:id" element={<EditJob />} />
+        <Route path="/admin/applications/edit/:id"element={<EditApplication />}/>
+        </Route> 
 
           {/* PAGE NOT FOUND */}
 

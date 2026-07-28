@@ -1,0 +1,88 @@
+.edit-application-page{
+
+    max-width:600px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.edit-application-page h2{
+
+    text-align:center;
+
+    color:#1e3a8a;
+
+    margin-bottom:25px;
+
+}
+
+.edit-application-page form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.edit-application-page label{
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+.edit-application-page input,
+.edit-application-page select{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+.edit-application-page input{
+
+    background:#f3f4f6;
+
+}
+
+.edit-application-page button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.edit-application-page button:hover{
+
+    background:#1d4ed8;
+
+}

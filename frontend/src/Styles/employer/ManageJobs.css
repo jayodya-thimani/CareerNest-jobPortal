@@ -1,0 +1,207 @@
+/* ======================================
+   PAGE LAYOUT
+====================================== */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.dashboard-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 30px;
+}
+
+/* ======================================
+   HEADER
+====================================== */
+
+.manage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.manage-header h1 {
+    color: #053275;
+    font-size: 34px;
+    margin-bottom: 5px;
+}
+
+.manage-header p {
+    color: #666;
+}
+
+.manage-header button {
+    background: #053275;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.manage-header button:hover {
+    background: #0d4ca3;
+}
+
+/* ======================================
+   TABLE
+====================================== */
+
+.table-container {
+    background: white;
+    border-radius: 18px;
+    overflow-x: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.jobs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.jobs-table thead {
+    background: #053275;
+    color: white;
+}
+
+.jobs-table th,
+.jobs-table td {
+    padding: 18px;
+    text-align: left;
+}
+
+.jobs-table tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+.jobs-table tbody tr:hover {
+    background: #f8faff;
+}
+
+/* ======================================
+   STATUS
+====================================== */
+
+.status-active {
+    background: #d4edda;
+    color: #155724;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.status-closed {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* ======================================
+   BUTTONS
+====================================== */
+
+.status-btn {
+    background: #053275;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    margin-right: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.status-btn:hover {
+    background: #0d4ca3;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #b52a37;
+}
+
+/* ======================================
+   EMPTY STATE
+====================================== */
+
+.empty-box {
+    text-align: center;
+    background: white;
+    padding: 50px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.empty-box h2 {
+    color: #053275;
+}
+
+.empty-box p {
+    color: #666;
+    margin: 15px 0 25px;
+}
+
+.empty-box button {
+    background: #053275;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.empty-box button:hover {
+    background: #0d4ca3;
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 992px) {
+
+    .dashboard-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .manage-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .jobs-table th,
+    .jobs-table td {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .status-btn,
+    .delete-btn {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+}

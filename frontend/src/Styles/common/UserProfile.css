@@ -1,0 +1,129 @@
+.user-profile {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: white;
+
+    padding: 10px 18px;
+
+    border-radius: 50px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+
+}
+
+
+.user-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.user-avatar,
+.default-avatar {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+}
+
+
+.user-avatar {
+
+    object-fit: cover;
+
+    border: 3px solid #053275;
+
+}
+
+
+.default-avatar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #053275;
+
+    color: white;
+
+    font-size: 25px;
+
+}
+
+
+.user-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.user-details strong {
+
+    color: #053275;
+
+    font-size: 16px;
+
+}
+
+
+.user-details span {
+
+    color: #777;
+
+    font-size: 13px;
+
+    text-transform: capitalize;
+
+}
+
+
+.logout-btn {
+
+    border: none;
+
+    background: #053275;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.logout-btn:hover {
+
+    background: #d62828;
+
+}

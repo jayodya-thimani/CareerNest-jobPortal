@@ -68,20 +68,11 @@ const userSchema = new mongoose.Schema({
     location:{
         type:String,
         default:""
-    },
 
-
-    skills:{
-        type:[String],
-        default:[]
     }
-
-
-}, 
-{
-    timestamps:true
+}, {
+    timestamps: true
 });
-
 
 module.exports = mongoose.model(
     "User",

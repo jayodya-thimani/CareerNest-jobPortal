@@ -1,0 +1,45 @@
+.settings-page{
+
+    padding:30px;
+
+}
+
+.settings-form{
+
+    width:500px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.settings-form input{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+}
+
+.settings-form button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}

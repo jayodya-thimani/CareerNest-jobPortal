@@ -1,6 +1,5 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useContext } from "react";
-
 import { AuthContext } from "../../context/AuthContext";
 
 
@@ -56,8 +55,6 @@ function ProtectedRoute({ role }) {
     // Allow access
     return <Outlet />;
 
-
 }
-
 
 export default ProtectedRoute;

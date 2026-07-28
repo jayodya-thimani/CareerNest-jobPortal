@@ -1,0 +1,474 @@
+/* ================= GLOBAL ================= */
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin:0;
+    background:#f5f7fb;
+}
+
+/* ================= ABOUT PAGE ================= */
+
+.about-container{
+    min-height:100vh;
+    padding:70px;
+
+    background-image:
+        linear-gradient(
+            rgba(7,57,143,0.55),
+            rgba(7,57,143,0.55)
+        ),
+        url("../../assets/about-background.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+
+/* ================= HERO SECTION ================= */
+
+
+.about-hero {
+
+
+  min-height:500px;
+
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+
+  text-align:center;
+
+
+  background:
+
+  linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+  );
+
+
+  border-radius:25px;
+
+
+  margin-bottom:50px;
+
+
+  color:white;
+
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,0.3);
+
+
+}
+
+
+
+.about-hero h1 {
+
+
+  font-size:70px;
+
+  font-weight:bold;
+
+  margin-bottom:25px;
+
+
+}
+
+
+
+.about-hero p {
+
+
+  font-size:30px;
+
+  line-height:1.6;
+
+  max-width:900px;
+
+
+}
+
+
+
+/* ================= CARDS ================= */
+
+
+.about-card {
+
+
+  background:white;
+
+
+  padding:45px;
+
+
+  border-radius:25px;
+
+
+  margin-bottom:45px;
+
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.15);
+
+
+}
+
+
+
+.about-card h2 {
+
+
+  color:#07398f;
+
+
+  font-size:42px;
+
+
+  margin-bottom:20px;
+
+
+}
+
+
+
+.about-card p {
+
+
+  color:#444;
+
+
+  font-size:24px;
+
+
+  line-height:1.8;
+
+
+}
+
+
+
+/* ================= MISSION VISION ================= */
+
+
+.about-grid {
+
+
+  display:grid;
+
+
+  grid-template-columns:repeat(2,1fr);
+
+
+  gap:35px;
+
+
+  margin-bottom:45px;
+
+
+}
+
+
+
+.info-card {
+
+
+  background:white;
+
+
+  padding:45px;
+
+
+  border-radius:25px;
+
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.15);
+
+
+  transition:0.3s;
+
+
+}
+
+
+
+.info-card:hover {
+
+
+  transform:translateY(-10px);
+
+
+}
+
+
+
+.info-card h2 {
+
+
+  color:#07398f;
+
+
+  font-size:40px;
+
+
+  margin-bottom:20px;
+
+
+}
+
+
+
+.info-card p {
+
+
+  font-size:24px;
+
+
+  line-height:1.8;
+
+
+  color:#444;
+
+
+}
+
+
+
+/* ================= SERVICES ================= */
+
+
+.services {
+
+
+  display:grid;
+
+
+  grid-template-columns:repeat(4,1fr);
+
+
+  gap:30px;
+
+
+}
+
+
+
+.service-box {
+
+
+  background:#eef5ff;
+
+
+  padding:35px 25px;
+
+
+  text-align:center;
+
+
+  border-radius:20px;
+
+
+  border-top:6px solid #FFD700;
+
+
+  transition:0.3s;
+
+
+}
+
+
+
+.service-box:hover {
+
+
+  transform:translateY(-12px);
+
+
+  background:#dbeafe;
+
+
+}
+
+
+
+.service-box h3 {
+
+
+  color:#07398f;
+
+
+  font-size:28px;
+
+
+  margin-bottom:18px;
+
+
+}
+
+
+
+.service-box p {
+
+
+  color:#555;
+
+
+  font-size:20px;
+
+
+  line-height:1.6;
+
+
+}
+
+
+
+/* ================= FOOTER ================= */
+
+
+.about-footer {
+
+
+  background:#07398f;
+
+
+  color:white;
+
+
+  text-align:center;
+
+
+  padding:45px;
+
+
+  border-radius:25px;
+
+
+}
+
+
+
+.about-footer h2 {
+
+
+  font-size:35px;
+
+
+}
+
+
+
+.about-footer p {
+
+
+  font-size:20px;
+
+
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:1000px){
+
+
+.about-container{
+
+padding:30px;
+
+}
+
+
+.about-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.services{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.about-hero h1{
+
+font-size:50px;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+nav{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+.nav-links{
+
+flex-direction:column;
+
+}
+
+
+.services{
+
+grid-template-columns:1fr;
+
+}
+
+
+.about-hero h1{
+
+font-size:40px;
+
+}
+
+
+.about-hero p{
+
+font-size:22px;
+
+}
+
+
+.about-card p,
+.info-card p{
+
+font-size:18px;
+
+}
+
+
+}

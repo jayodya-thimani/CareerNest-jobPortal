@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -78,8 +79,16 @@ if(!id){
 console.log("User ID not found");
 
 return;
+=======
+import React from 'react'
+>>>>>>> 5356c77cbf02c5c1edf93c4dd162f0e7c31f47b0
 
+export default function StudentDashboard() {
+  return (
+    <div>StudentDashboard</div>
+  )
 }
+<<<<<<< HEAD
 
 
 
@@ -823,3 +832,5 @@ Insight Analytics
 
 
 export default StudentDashboard;
+=======
+>>>>>>> 5356c77cbf02c5c1edf93c4dd162f0e7c31f47b0
