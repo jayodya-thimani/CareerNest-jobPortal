@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
-<<<<<<< HEAD:frontend/src/pages/common/Home.jsx
 import "../../styles/common/Home.css";
 
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
-=======
-import "../Styles/Home.css";
-
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
->>>>>>> 5356c77cbf02c5c1edf93c4dd162f0e7c31f47b0:frontend/src/pages/Home.jsx
 
 function Home() {
   return (

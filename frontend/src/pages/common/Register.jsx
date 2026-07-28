@@ -2,15 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-<<<<<<< HEAD:frontend/src/pages/common/Register.jsx
 import "../../styles/common/Register.css";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
-=======
-import "../Styles/Register.css";
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
->>>>>>> 5356c77cbf02c5c1edf93c4dd162f0e7c31f47b0:frontend/src/pages/Register.jsx
 
 function Register() {
 
@@ -243,13 +237,6 @@ function Register() {
               />
 
             )}
-
-<<<<<<< HEAD:frontend/src/pages/common/Register.jsx
-         
-=======
-
-
->>>>>>> 5356c77cbf02c5c1edf93c4dd162f0e7c31f47b0:frontend/src/pages/Register.jsx
 
             <button
 
