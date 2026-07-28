@@ -1,143 +1,33 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-
-import { AuthContext } from "../context/AuthContext";
-import { ThemeContext } from "../context/ThemeContext";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
-
-  const { user, logout } = useContext(AuthContext);
-  const { theme, changeTheme } = useContext(ThemeContext);
-
-  if (!user) {
-    return null;
-  }
-
   return (
-    <div
+    <aside
       style={{
         width: "220px",
         minHeight: "100vh",
+        background: "#0f3d6b",
+        color: "#fff",
         padding: "20px",
-        backgroundColor: theme === "Light" ? "#f2f2f2" : "#333",
-        color: theme === "Light" ? "black" : "white",
+        boxSizing: "border-box",
       }}
     >
-      <h2>Job Portal</h2>
-
-      <hr />
-
-      <p>
-        <strong>Welcome</strong>
-      </p>
-
-      <p>{user.name}</p>
-
-      <p>Role : {user.role}</p>
-
-      <hr />
-
-      {/* Student Menu */}
-
-      {user.role === "student" && (
-        <>
-          <Link to="/student/dashboard">Dashboard</Link>
-
-          <br /><br />
-
-          <Link to="/student/profile">My Profile</Link>
-
-          <br /><br />
-
-          <Link to="/jobs">Browse Jobs</Link>
-
-          <br /><br />
-
-          <Link to="/student/applications">
-            My Applications
-          </Link>
-
-          <br /><br />
-
-          <Link to="/student/notifications">
-            Notifications
-          </Link>
-
-          <br /><br />
-        </>
-      )}
-
-      {/* Employer Menu */}
-
-      {user.role === "employer" && (
-        <>
-          <Link to="/employer/dashboard">
-            Dashboard
-          </Link>
-
-          <br /><br />
-
-          <Link to="/employer/postjob">
-            Post Job
-          </Link>
-
-          <br /><br />
-
-          <Link to="/employer/managejobs">
-            Manage Jobs
-          </Link>
-
-          <br /><br />
-
-          <Link to="/employer/applicants">
-            Applicants
-          </Link>
-
-          <br /><br />
-        </>
-      )}
-
-      {/* Admin Menu */}
-
-      {user.role === "admin" && (
-        <>
-          <Link to="/admin/dashboard">
-            Dashboard
-          </Link>
-
-          <br /><br />
-
-          <Link to="/admin/users">
-            Manage Users
-          </Link>
-
-          <br /><br />
-
-          <Link to="/admin/jobapproval">
-            Job Approval
-          </Link>
-
-          <br /><br />
-        </>
-      )}
-
-      <hr />
-
-      {/* Theme Button */}
-
-      <button onClick={changeTheme}>
-        Switch to {theme === "Light" ? "Dark" : "Light"} Mode
-      </button>
-
-      <br /><br />
-
-      {/* Logout Button */}
-
-      <button onClick={logout}>
-        Logout
-      </button>
-
-    </div>
+      <h2 style={{ marginBottom: "20px" }}>CareerNest</h2>
+      <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <NavLink to="/admin/dashboard" style={{ color: "#fff", textDecoration: "none" }}>
+          Dashboard
+        </NavLink>
+        <NavLink to="/admin/manage-users" style={{ color: "#fff", textDecoration: "none" }}>
+          Manage Users
+        </NavLink>
+        <NavLink to="/admin/manage-jobs" style={{ color: "#fff", textDecoration: "none" }}>
+          Manage Jobs
+        </NavLink>
+        <NavLink to="/admin/job-approval" style={{ color: "#fff", textDecoration: "none" }}>
+          Job Approval
+        </NavLink>
+      </nav>
+    </aside>
   );
 }
 

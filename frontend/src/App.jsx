@@ -23,6 +23,12 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./App.css";
+import ManageJobs from "./pages/employer/ManageJobs";
+import PostJob from "./pages/employer/PostJob";
+import Applicants from "./pages/employer/Applicants";
+import Notifications from "./pages/employer/Notifications";
+import Settings from "./pages/employer/Settings";
+import CompanyProfile from "./pages/employer/CompanyProfile";
 
 
 function App() {
@@ -150,8 +156,33 @@ function App() {
               path="/employer/dashboard"
               element={<EmployerDashboard />}
             />
-
+            <Route
+              path="/employer/managejobs"
+              element={<ManageJobs />}
+            />
+            <Route
+              path="/employer/postjob"
+              element={<PostJob />}
+            />
+            <Route
+              path="/employer/applicants"
+              element={<Applicants />}
+            />
+            <Route
+              path="/employer/notifications"
+              element={<Notifications />}
+            />
+            <Route
+              path="/employer/settings"
+              element={<Settings />}
+            />
+            <Route
+              path="/employer/profile"
+              element={<CompanyProfile />}
+            />
+          
           </Route>
+
 
 
 

@@ -1,7 +1,7 @@
 /* ==========================
    MAIN PAGE
 ========================== */
-
+/*
 .employer-page {
 
     min-height: 100vh;
@@ -16,7 +16,7 @@
 /* ==========================
    PAGE HEADER
 ========================== */
-
+/*
 .page-header {
 
     background: white;
@@ -59,7 +59,7 @@
 /* ==========================
    BACK BUTTON
 ========================== */
-
+/*
 .back-btn {
 
     background: #053275;
@@ -91,7 +91,7 @@
 /* ==========================
    FORM
 ========================== */
-
+/*
 .post-job-form {
 
     max-width: 850px;
@@ -118,7 +118,7 @@
 /* ==========================
    LABELS
 ========================== */
-
+/*
 .post-job-form label {
 
     color: #053275;
@@ -144,7 +144,7 @@
 /* ==========================
    INPUTS
 ========================== */
-
+/*
 .post-job-form input,
 
 .post-job-form textarea,
@@ -197,7 +197,7 @@
 /* ==========================
    PUBLISH BUTTON
 ========================== */
-
+/*
 .submit-job-button {
 
     margin-top: 30px;
@@ -237,7 +237,7 @@
 /* ==========================
    RESPONSIVE
 ========================== */
-
+/*
 @media (max-width: 700px) {
 
     .employer-page {
@@ -267,4 +267,162 @@
 
     }
 
+}*/
+/* ==========================
+   POST JOB PAGE
+========================== */
+/* ======================================
+   POST JOB PAGE
+====================================== */
+
+.post-job-container {
+    min-height: 100vh;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* ======================================
+   CARD
+====================================== */
+
+.post-job-card {
+    width: 100%;
+    max-width: 900px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.post-job-card h1 {
+    color: #053275;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.post-job-card p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* ======================================
+   FORM
+====================================== */
+
+.post-job-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Inputs */
+
+.post-job-card input,
+.post-job-card select,
+.post-job-card textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+    background: #fff;
+}
+
+.post-job-card input:focus,
+.post-job-card select:focus,
+.post-job-card textarea:focus {
+    border-color: #053275;
+    box-shadow: 0 0 0 3px rgba(5, 50, 117, 0.15);
+}
+
+/* Textarea */
+
+.post-job-card textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* Placeholder */
+
+.post-job-card input::placeholder,
+.post-job-card textarea::placeholder {
+    color: #999;
+}
+
+/* ======================================
+   BUTTON
+====================================== */
+
+.post-job-card button {
+    background: #053275;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.post-job-card button:hover {
+    background: #0d4ca3;
+    transform: translateY(-2px);
+}
+
+.post-job-card button:active {
+    transform: translateY(0);
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 768px) {
+
+    .post-job-container {
+        padding: 20px;
+    }
+
+    .post-job-card {
+        padding: 30px 20px;
+    }
+
+    .post-job-card h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .post-job-card {
+        padding: 20px 15px;
+    }
+
+    .post-job-card h1 {
+        font-size: 24px;
+    }
+
+    .post-job-card p {
+        font-size: 15px;
+    }
+
+    .post-job-card input,
+    .post-job-card select,
+    .post-job-card textarea {
+        font-size: 15px;
+        padding: 13px;
+    }
+
+    .post-job-card button {
+        font-size: 16px;
+    }
 }

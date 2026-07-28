@@ -1,75 +1,37 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import background from "../assets/background.jpg";
 import "./ForgetPassword.css";
+import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
 
 function ForgotPassword() {
-
   return (
-
     <>
       <Navbar />
 
-
       <div className="forgot-page">
-
-
         <div className="forgot-card">
-
-
-          <h1>
-            Forgot Password?
-          </h1>
-
+          <h1>Forgot Password?</h1>
 
           <p>
-            Enter your email address and we will send you a link to reset your password.
+            Enter your email address and we will send you a link to reset your
+            password.
           </p>
 
-
-
           <form>
+            <label>Email Address</label>
 
+            <input type="email" placeholder="Enter your email" />
 
-            <label>
-              Email Address
-            </label>
-
-
-            <input
-              type="email"
-              placeholder="Enter your email"
-            />
-
-
-
-            <button>
-              Send Reset Link
-            </button>
-
-
-
+            <button>Send Reset Link</button>
           </form>
 
-
-          <a href="/login">
-            Back to Login
-          </a>
-
-
+          <a href="/login">Back to Login</a>
         </div>
-
-
       </div>
 
-
       <Footer />
-
     </>
-
   );
-
 }
-
 
 export default ForgotPassword;

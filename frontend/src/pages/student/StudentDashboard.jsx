@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
 
-import UserProfile from "../../components/UserProfile";
+
 
 import "./StudentDashboard.css";
 
@@ -102,7 +102,7 @@ function StudentDashboard() {
                 PROFILE MENU
             ========================== */}
 
-            <UserProfile />
+          
 
 
             {/* ==========================

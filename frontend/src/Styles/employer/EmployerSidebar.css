@@ -1,0 +1,42 @@
+.employer-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #0f3d6b;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-logo h2,
+.sidebar-logo p {
+  margin: 0;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.sidebar-menu a.active-link {
+  background: rgba(255,255,255,0.2);
+}
+
+.logout-btn {
+  background: #fff;
+  color: #0f3d6b;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -1,22 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import "./UserProfile.css";
 
 function UserProfile() {
-
   const navigate = useNavigate();
-
-  const user = JSON.parse(
-    localStorage.getItem("loggedInUser")
-  );
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
 
   const handleLogout = () => {
-
     localStorage.removeItem("isLoggedIn");
-
     localStorage.removeItem("loggedInUser");
-
     navigate("/login");
-
   };
 
   if (!user) {
@@ -24,50 +15,13 @@ function UserProfile() {
   }
 
   return (
-
-    <div className="user-profile">
-
-      <div className="user-info">
-
-        {user.profilePicture ? (
-
-          <img
-            src={user.profilePicture}
-            alt="Profile"
-            className="user-avatar"
-          />
-
-        ) : (
-
-          <div className="default-avatar">
-            👤
-          </div>
-
-        )}
-
-        <div className="user-details">
-
-          <strong>
-            {user.name}
-          </strong>
-
-          <span>
-            {user.role}
-          </span>
-
-        </div>
-
+    <div style={{ padding: "10px 20px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div>
+        <strong>{user.name}</strong>
+        <div>{user.role}</div>
       </div>
-
-      <button
-        className="logout-btn"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
-
+      <button onClick={handleLogout}>Logout</button>
     </div>
-
   );
 }
 
