@@ -1,0 +1,87 @@
+.edit-job-page{
+
+    max-width:600px;
+
+    margin:40px auto;
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.edit-job-page h2{
+
+    text-align:center;
+
+    color:#1e3a8a;
+
+    margin-bottom:25px;
+
+}
+
+.edit-job-page form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.edit-job-page input,
+
+.edit-job-page select{
+
+    padding:12px;
+
+    font-size:16px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.edit-job-page input:focus,
+
+.edit-job-page select:focus{
+
+    border-color:#2563eb;
+
+}
+
+.edit-job-page button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.edit-job-page button:hover{
+
+    background:#1d4ed8;
+
+}

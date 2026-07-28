@@ -1,0 +1,46 @@
+.applications-page{
+
+    padding:30px;
+
+}
+
+.applications-header{
+
+    margin-bottom:20px;
+
+}
+
+.search-box{
+
+    width:350px;
+
+    padding:10px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    margin-bottom:20px;
+
+}
+.image-banner {
+    background: rgba(0, 0, 0, 0.55);
+
+    color: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+}
+
+.image-banner h1 {
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+.image-banner p {
+    font-size: 18px;
+}

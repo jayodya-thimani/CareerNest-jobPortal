@@ -1,0 +1,78 @@
+/* ==========================
+   Job Card
+========================== */
+
+.job-card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================
+   Job Title
+========================== */
+
+.job-card h3 {
+    color: #1e40af;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* ==========================
+   Company & Location
+========================== */
+
+.job-card p {
+    color: #555;
+    font-size: 16px;
+    margin: 6px 0;
+}
+
+/* ==========================
+   Apply Button
+========================== */
+
+.job-card button {
+    margin-top: 15px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.job-card button:hover {
+    background-color: #1d4ed8;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 768px) {
+
+    .job-card {
+        padding: 15px;
+    }
+
+    .job-card h3 {
+        font-size: 20px;
+    }
+
+    .job-card button {
+        width: 100%;
+    }
+
+}

@@ -5,6 +5,8 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes=require("./routes/auth");
 const app = express();
+const adminRoutes = require("./routes/admin");
+//const adminStudentRoutes = require("./routes/adminStudents");
 //connect to mongodb
 connectDB();
 console.log("Your Application Server Started Successfully.");
@@ -16,7 +18,12 @@ app.use("/api/auth",authRoutes);
 //Test route
 app.get("/", (req,res)=>{
     res.send("Backend is running");
+    
 });
+
+// Admin routes
+app.use("/api/admin", adminRoutes);
+//app.use("/api/admin/students", adminStudentRoutes);
 
 //server port
 const PORT = process.env.PORT || 5000;
