@@ -1,8 +1,8 @@
-import contactImage from "../assets/contact.png";
-import background from "../assets/background.jpg";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
-
+import contactImage from "../assets/contact.png";
+import background from "../assets/background.jpg";
+import "../Styles/ContactUs.css";
 
 function ContactUs() {
 

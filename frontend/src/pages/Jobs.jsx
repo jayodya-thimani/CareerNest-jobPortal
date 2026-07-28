@@ -4,12 +4,11 @@ import axios from "axios";
 
 import { AuthContext } from "../context/AuthContext";
 
-
-import logo from "../assets/logo.png";
-
-import "./Login.css";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+import logo from "../assets/logo.png";
+
+import "../Styles/Jobs.css";
 
 function Login() {
 

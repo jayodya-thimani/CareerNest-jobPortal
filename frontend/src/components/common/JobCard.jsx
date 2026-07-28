@@ -1,8 +1,9 @@
+import "../../Styles/common/JobCard.css";
 function JobCard({ title, company, location }) {
 
   return (
 
-    <div>
+    <div className="job-card">
 
       <h3>{title}</h3>
 

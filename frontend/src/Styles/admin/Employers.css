@@ -1,0 +1,68 @@
+.employers-page{
+
+    padding:30px;
+    
+}
+
+.employer-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.employer-header button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+.search-box{
+
+    width:350px;
+
+    padding:10px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    margin-bottom:25px;
+
+}
+.employer-header {
+    background: rgba(0, 0, 0, 0.55);
+
+    color: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+}
+
+.employer-header h1 {
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+.employer-header p {
+    font-size: 18px;
+}

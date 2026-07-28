@@ -1,7 +1,7 @@
-import background from "../assets/background.jpg";
-import "./ForgetPassword.css";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+import background from "../assets/background.jpg";
+import "../Styles/ForgetPassword.css";
 
 function ForgotPassword() {
   return (
