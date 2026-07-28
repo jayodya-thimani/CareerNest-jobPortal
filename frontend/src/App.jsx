@@ -23,7 +23,7 @@ import AdminStudents from "./pages/admin/AdminStudents";
 import AdminEmployers from "./pages/admin/AdminEmployers";
 import AdminJobs from "./pages/admin/AdminJobs";
 import AdminApplications from "./pages/admin/AdminApplications";
-import AdminReports from "./pages/admin/AdminReports";
+
 import AdminSettings from "./pages/admin/AdminSettings";
 import EditStudent from "./pages/admin/EditStudent";
 import EditEmployer from "./pages/admin/EditEmployer";
@@ -169,7 +169,6 @@ function App() {
         <Route path="/admin/employers" element={<AdminEmployers />} />
         <Route path="/admin/jobs" element={<AdminJobs />} />
         <Route path="/admin/applications" element={<AdminApplications />} />
-        <Route path="/admin/reports" element={<AdminReports />} />
         <Route path="/admin/settings" element={<AdminSettings />} />
         <Route path="/admin/students/edit/:id" element={<EditStudent />} />
         <Route path="/admin/employers/edit/:id" element={<EditEmployer />} />
