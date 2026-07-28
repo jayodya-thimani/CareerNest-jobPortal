@@ -1,0 +1,1117 @@
+/* ============================= */
+/* GLOBAL */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+.student-dashboard {
+
+  min-height:100vh;
+
+  background:#f6f8fc;
+
+  font-family:"Segoe UI", Arial, sans-serif;
+
+  color:#14213d;
+
+}
+
+
+
+/* ============================= */
+/* MAIN LAYOUT */
+/* ============================= */
+
+
+.dashboard-main {
+
+  padding-top:75px;
+
+  min-height:100vh;
+
+  display:flex;
+
+  transition:0.3s ease;
+
+}
+
+
+
+.main-with-sidebar {
+
+  margin-left:280px;
+
+}
+
+
+
+.main-full {
+
+  margin-left:0;
+
+}
+
+
+
+.dashboard-content {
+
+  flex:1;
+
+  padding:45px 35px;
+
+}
+
+
+
+/* ============================= */
+/* WELCOME BANNER */
+/* ============================= */
+
+
+.welcome-banner {
+
+
+  min-height:320px;
+
+
+  border-radius:24px;
+
+
+  padding:45px;
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  justify-content:space-between;
+
+
+  gap:40px;
+
+
+  overflow:hidden;
+
+
+  background:
+  linear-gradient(
+  135deg,
+  #eaf4ff,
+  #d4e9ff
+  );
+
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+/* ============================= */
+/* WELCOME TEXT */
+/* ============================= */
+
+
+.welcome-text {
+
+ flex:1;
+
+}
+
+
+.welcome-text p {
+
+
+  margin:0 0 10px;
+
+
+  font-size:28px;
+
+
+  font-weight:700;
+
+
+  color:#334155;
+
+
+}
+
+
+
+.welcome-text h1 {
+
+
+  margin:0 0 18px;
+
+
+  font-size:48px;
+
+
+  font-weight:800;
+
+
+  color:#053275;
+
+
+}
+
+
+
+.welcome-text > span {
+
+
+  font-size:19px;
+
+
+  line-height:1.7;
+
+
+  color:#475569;
+
+
+}
+
+
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+
+.welcome-buttons {
+
+
+  display:flex;
+
+
+  flex-direction:row;
+
+
+  align-items:center;
+
+
+  gap:18px;
+
+
+  margin-top:30px;
+
+
+}
+
+
+
+.primary-button,
+.secondary-button {
+
+
+ padding:15px 35px;
+
+
+ border-radius:12px;
+
+
+ font-size:16px;
+
+
+ font-weight:700;
+
+
+ cursor:pointer;
+
+
+ transition:0.3s;
+
+
+ white-space:nowrap;
+
+
+}
+
+
+
+.primary-button {
+
+
+ background:#053275;
+
+
+ color:white;
+
+
+ border:none;
+
+
+}
+
+
+
+.primary-button:hover {
+
+
+ background:#074aa5;
+
+
+ transform:translateY(-3px);
+
+
+}
+
+
+
+.secondary-button {
+
+
+ background:white;
+
+
+ color:#053275;
+
+
+ border:2px solid #053275;
+
+
+}
+
+
+
+.secondary-button:hover {
+
+
+ background:#053275;
+
+
+ color:white;
+
+
+}
+
+
+
+
+/* ============================= */
+/* PROFILE PHOTO */
+/* ============================= */
+
+
+.welcome-image {
+
+
+ width:300px;
+
+
+ height:300px;
+
+
+ border-radius:50%;
+
+
+ flex-shrink:0;
+
+
+ display:flex;
+
+
+ align-items:center;
+
+
+ justify-content:center;
+
+
+ background:
+ linear-gradient(
+ 135deg,
+ #b8ddff,
+ #8bc3ff
+ );
+
+
+ box-shadow:
+ 0 15px 35px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+.welcome-profile-photo,
+.welcome-profile-placeholder {
+
+
+ width:230px;
+
+
+ height:230px;
+
+
+ border-radius:50%;
+
+
+ border:7px solid white;
+
+
+ box-shadow:
+ 0 10px 25px rgba(0,0,0,0.18);
+
+
+}
+
+
+
+.welcome-profile-photo {
+
+
+ object-fit:cover;
+
+
+}
+
+
+
+.welcome-profile-placeholder {
+
+
+ background:white;
+
+
+ color:#053275;
+
+
+ display:flex;
+
+
+ align-items:center;
+
+
+ justify-content:center;
+
+
+ font-size:70px;
+
+
+ font-weight:800;
+
+
+}
+
+
+
+/* ============================= */
+/* SECTIONS */
+/* ============================= */
+
+
+.dashboard-section {
+
+
+ margin-top:45px;
+
+
+}
+
+
+
+.section-header {
+
+
+ display:flex;
+
+
+ justify-content:space-between;
+
+
+ align-items:center;
+
+
+ margin-bottom:22px;
+
+
+}
+
+
+
+.section-header h2 {
+
+
+ font-size:28px;
+
+
+ font-weight:800;
+
+
+ color:#14213d;
+
+
+}
+
+
+
+.see-all-button {
+
+
+ border:none;
+
+
+ background:none;
+
+
+ color:#0969e8;
+
+
+ font-size:20px;
+
+
+ font-weight:700;
+
+
+ cursor:pointer;
+
+
+}
+
+
+
+/* ============================= */
+/* RECOMMENDED JOB CONTENT */
+/* ============================= */
+
+.jobs-list {
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:25px;
+
+  align-items:center;
+
+}
+
+
+/* Center job card content */
+
+.jobs-list > * {
+
+  width:90%;
+
+  text-align:center;
+
+}
+
+
+/* Job title */
+
+.jobs-list h1,
+.jobs-list h2 {
+
+  font-size:36px;
+
+  font-weight:800;
+
+  color:#053275;
+
+  text-align:center;
+
+}
+
+
+/* Company name */
+
+.jobs-list h3 {
+
+  font-size:28px;
+
+  font-weight:700;
+
+  text-align:center;
+
+}
+
+
+/* Job description/details */
+
+.jobs-list p {
+
+  font-size:22px;
+
+  line-height:1.8;
+
+  text-align:center;
+
+}
+
+
+/* Skills */
+
+.jobs-list span {
+
+  font-size:18px;
+
+  font-weight:700;
+
+  display:inline-block;
+
+  margin:5px;
+
+}
+
+
+/* Center buttons */
+
+.jobs-list button {
+
+  font-size:18px;
+
+  padding:14px 35px;
+
+  margin:15px auto;
+
+}
+
+
+
+
+
+/* ============================= */
+/* APPLICATION OVERVIEW */
+/* ============================= */
+
+
+.application-overview {
+
+
+ display:grid;
+
+
+ grid-template-columns:
+ repeat(3,1fr);
+
+
+ gap:20px;
+
+
+}
+
+
+
+.application-box {
+
+
+ padding:30px;
+
+
+ border-radius:20px;
+
+
+ text-align:center;
+
+
+ box-shadow:
+ 0 8px 25px rgba(0,0,0,0.07);
+
+
+ transition:.3s;
+
+
+}
+
+
+
+.application-box:hover {
+
+
+ transform:translateY(-5px);
+
+
+}
+
+
+
+.application-box h3 {
+
+
+ margin:0;
+
+
+ font-size:42px;
+
+
+ font-weight:800;
+
+
+}
+
+
+
+.application-box p {
+
+
+ margin-top:10px;
+
+
+ font-size:17px;
+
+
+ font-weight:700;
+
+
+}
+
+
+
+.submitted {
+
+
+ background:#eaf3ff;
+
+
+ color:#1263db;
+
+
+}
+
+
+
+.approved {
+
+
+ background:#eafff1;
+
+
+ color:#16a34a;
+
+
+}
+
+
+
+.rejected {
+
+
+ background:#fff0f0;
+
+
+ color:#dc2626;
+
+
+}
+
+
+
+
+
+/* ============================= */
+/* RIGHT SIDE */
+/* ============================= */
+
+
+.dashboard-right {
+
+
+ width:350px;
+
+
+ padding:45px 30px 40px 0;
+
+
+}
+
+
+
+.dashboard-widget {
+
+
+ background:white;
+
+
+ border-radius:20px;
+
+
+ padding:30px;
+
+
+ margin-bottom:25px;
+
+
+ border:1px solid #e5ebf2;
+
+
+ box-shadow:
+ 0 8px 25px rgba(0,0,0,.06);
+
+
+}
+
+
+
+.dashboard-widget h2 {
+
+
+ margin:0 0 25px;
+
+
+ font-size:23px;
+
+
+ color:#053275;
+
+
+}
+
+
+
+
+/* ============================= */
+/* SKILLS */
+/* ============================= */
+
+
+.skills-list {
+
+
+ display:flex;
+
+
+ flex-wrap:wrap;
+
+
+ gap:12px;
+
+
+}
+
+
+
+.skills-list span {
+
+
+ padding:11px 18px;
+
+
+ background:#eaf2ff;
+
+
+ color:#0969e8;
+
+
+ border-radius:25px;
+
+
+ font-size:15px;
+
+
+ font-weight:700;
+
+
+}
+
+
+
+.widget-button {
+
+
+ width:100%;
+
+
+ margin-top:20px;
+
+
+ padding:14px;
+
+
+ border-radius:12px;
+
+
+ border:2px solid #053275;
+
+
+ background:white;
+
+
+ color:#053275;
+
+
+ font-size:15px;
+
+
+ font-weight:700;
+
+
+ cursor:pointer;
+
+
+}
+
+
+
+.widget-button:hover {
+
+
+ background:#053275;
+
+
+ color:white;
+
+
+}
+
+
+
+
+
+/* ============================= */
+/* DEADLINES */
+/* ============================= */
+
+
+.widget-title {
+
+
+ display:flex;
+
+
+ justify-content:space-between;
+
+
+ align-items:center;
+
+
+}
+
+
+
+.deadline-item {
+
+
+ border-top:1px solid #edf0f4;
+
+
+ padding:18px 0;
+
+
+ display:flex;
+
+
+ flex-direction:column;
+
+
+ gap:8px;
+
+
+}
+
+
+
+.deadline-item strong {
+
+
+ font-size:17px;
+
+
+}
+
+
+
+.deadline-item span {
+
+
+ font-size:15px;
+
+
+ color:#64748b;
+
+
+}
+
+
+
+.deadline-item b {
+
+
+ font-size:14px;
+
+
+ color:#dc2626;
+
+
+}
+
+
+
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+
+@media(max-width:1200px){
+
+
+.dashboard-right{
+
+width:280px;
+
+}
+
+
+}
+
+
+
+@media(max-width:1000px){
+
+
+.dashboard-right{
+
+display:none;
+
+}
+
+
+
+.welcome-banner{
+
+
+flex-direction:column;
+
+
+text-align:center;
+
+
+}
+
+
+.welcome-buttons{
+
+
+justify-content:center;
+
+
+}
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.dashboard-content{
+
+
+padding:25px 15px;
+
+
+}
+
+
+
+.welcome-banner{
+
+
+padding:30px;
+
+
+}
+
+
+
+.welcome-text h1{
+
+
+font-size:35px;
+
+
+}
+
+
+
+.welcome-text p{
+
+
+font-size:22px;
+
+
+}
+
+
+
+.welcome-buttons{
+
+
+flex-direction:row;
+
+
+}
+
+
+
+.primary-button,
+.secondary-button{
+
+
+padding:12px 15px;
+
+
+font-size:14px;
+
+
+}
+
+
+
+.welcome-image{
+
+
+width:220px;
+
+
+height:220px;
+
+
+}
+
+
+
+.welcome-profile-photo,
+.welcome-profile-placeholder{
+
+
+width:160px;
+
+
+height:160px;
+
+
+}
+
+
+
+.application-overview{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.section-header h2{
+
+
+font-size:22px;
+
+
+}
+
+
+} 

@@ -1,565 +1,825 @@
-import { useContext, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-import { AuthContext } from "../../context/AuthContext";
+import StudentNavbar from "../../components/student/StudentNavbar";
+import StudentSidebar from "../../components/student/StudentSidebar";
+import StudentJobcard from "../../components/student/StudentJobcard";
 
-import UserProfile from "../../components/UserProfile";
+import { jobs } from "../common/Jobs";
 
-import "./StudentDashboard.css";
+import "../../styles/student/StudentDashboard.css";
 
 
 function StudentDashboard() {
 
-    const { user } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+const navigate = useNavigate();
 
 
-    const [cvName, setCvName] = useState("");
 
+const [sidebarOpen,setSidebarOpen] = useState(true);
 
-    // ==========================
-    // CV UPLOAD
-    // ==========================
 
-    const handleCVUpload = (e) => {
 
-        const file = e.target.files[0];
+const [userName,setUserName] = useState(
 
+localStorage.getItem("userName") || "Student"
 
-        if (!file) {
+);
 
-            return;
 
-        }
 
+const [profilePhoto,setProfilePhoto] = useState(
 
-        const allowedTypes = [
+localStorage.getItem("profilePhoto") || ""
 
-            "application/pdf",
+);
 
-            "application/msword",
 
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
-        ];
+const [skills,setSkills] = useState(
 
+JSON.parse(
+localStorage.getItem("skills")
+) || []
 
-        if (!allowedTypes.includes(file.type)) {
+);
 
-            alert(
 
-                "Please upload a PDF or Word document."
 
-            );
 
-            return;
 
-        }
+const toggleSidebar = ()=>{
 
+setSidebarOpen(!sidebarOpen);
 
-        setCvName(file.name);
+};
 
 
-        alert(
 
-            "CV uploaded successfully!"
 
-        );
 
-    };
 
+// =============================
+// GET USER PROFILE
+// =============================
 
-    // ==========================
-    // LOADING
-    // ==========================
 
-    if (!user) {
+useEffect(()=>{
 
-        return (
 
-            <div className="dashboard-loading">
+const id = localStorage.getItem("userId");
 
-                <h2>
 
-                    Loading student dashboard...
 
-                </h2>
+if(!id){
 
-            </div>
+console.log("User ID not found");
 
-        );
-
-    }
-
-
-    return (
-
-        <div className="student-dashboard">
-
-
-            {/* ==========================
-                PROFILE MENU
-            ========================== */}
-
-            <UserProfile />
-
-
-            {/* ==========================
-                DASHBOARD HEADER
-            ========================== */}
-
-            <div className="dashboard-header">
-
-
-                <div>
-
-
-                    <h1>
-
-                        Student Dashboard
-
-                    </h1>
-
-
-                    <p>
-
-                        Welcome back, {user.name}! 👋
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-            {/* ==========================
-                QUICK ACTIONS
-            ========================== */}
-
-            <div className="quick-actions">
-
-
-                <button
-
-                    onClick={() =>
-
-                        navigate("/jobs")
-
-                    }
-
-                >
-
-                    🔍 Search Jobs
-
-                </button>
-
-
-                <button
-
-                    onClick={() =>
-
-                        navigate("/applications")
-
-                    }
-
-                >
-
-                    📄 My Applications
-
-                </button>
-
-
-                <button
-
-                    onClick={() =>
-
-                        navigate("/saved-jobs")
-
-                    }
-
-                >
-
-                    ❤️ Saved Jobs
-
-                </button>
-
-
-                <button
-
-                    onClick={() =>
-
-                        navigate("/profile")
-
-                    }
-
-                >
-
-                    👤 Edit Profile
-
-                </button>
-
-
-            </div>
-
-
-            {/* ==========================
-                DASHBOARD CARDS
-            ========================== */}
-
-            <div className="dashboard-content">
-
-
-                {/* PROFILE CARD */}
-
-                <div className="dashboard-card">
-
-
-                    <h2>
-
-                        👤 My Profile
-
-                    </h2>
-
-
-                    <p>
-
-                        <strong>
-
-                            Name:
-
-                        </strong>{" "}
-
-                        {user.name}
-
-                    </p>
-
-
-                    <p>
-
-                        <strong>
-
-                            Email:
-
-                        </strong>{" "}
-
-                        {user.email}
-
-                    </p>
-
-
-                    <p>
-
-                        <strong>
-
-                            Role:
-
-                        </strong>{" "}
-
-                        Student
-
-                    </p>
-
-
-                    <button
-
-                        onClick={() =>
-
-                            navigate("/profile")
-
-                        }
-
-                    >
-
-                        Edit Profile
-
-                    </button>
-
-
-                </div>
-
-
-                {/* CV CARD */}
-
-                <div className="dashboard-card">
-
-
-                    <h2>
-
-                        📄 My CV
-
-                    </h2>
-
-
-                    <p>
-
-                        Upload your CV to apply for
-
-                        internships and jobs.
-
-                    </p>
-
-
-                    <label
-
-                        htmlFor="cv-upload"
-
-                        className="upload-btn"
-
-                    >
-
-                        Upload CV
-
-                    </label>
-
-
-                    <input
-
-                        id="cv-upload"
-
-                        type="file"
-
-                        accept=".pdf,.doc,.docx"
-
-                        onChange={handleCVUpload}
-
-                        hidden
-
-                    />
-
-
-                    {cvName && (
-
-                        <div className="cv-info">
-
-
-                            <p>
-
-                                📎 {cvName}
-
-                            </p>
-
-
-                            <button
-
-                                onClick={() =>
-
-                                    setCvName("")
-
-                                }
-
-                            >
-
-                                Remove CV
-
-                            </button>
-
-
-                        </div>
-
-                    )}
-
-
-                </div>
-
-
-                {/* APPLICATIONS CARD */}
-
-                <div className="dashboard-card">
-
-
-                    <h2>
-
-                        📊 My Applications
-
-                    </h2>
-
-
-                    <div className="stat-number">
-
-                        0
-
-                    </div>
-
-
-                    <p>
-
-                        Applications submitted
-
-                    </p>
-
-
-                    <button
-
-                        onClick={() =>
-
-                            navigate("/applications")
-
-                        }
-
-                    >
-
-                        View Applications
-
-                    </button>
-
-
-                </div>
-
-
-                {/* SAVED JOBS CARD */}
-
-                <div className="dashboard-card">
-
-
-                    <h2>
-
-                        ❤️ Saved Jobs
-
-                    </h2>
-
-
-                    <div className="stat-number">
-
-                        0
-
-                    </div>
-
-
-                    <p>
-
-                        Jobs saved for later
-
-                    </p>
-
-
-                    <button
-
-                        onClick={() =>
-
-                            navigate("/saved-jobs")
-
-                        }
-
-                    >
-
-                        View Saved Jobs
-
-                    </button>
-
-
-                </div>
-
-
-                {/* RECOMMENDED OPPORTUNITIES */}
-
-                <div className="dashboard-card recommended-card">
-
-
-                    <h2>
-
-                        ⭐ Recommended Opportunities
-
-                    </h2>
-
-
-                    <p>
-
-                        Discover internships and jobs
-
-                        matching your interests and skills.
-
-                    </p>
-
-
-                    <button
-
-                        onClick={() =>
-
-                            navigate("/jobs")
-
-                        }
-
-                    >
-
-                        Explore Opportunities
-
-                    </button>
-
-
-                </div>
-
-
-                {/* PROFILE COMPLETION */}
-
-                <div className="dashboard-card">
-
-
-                    <h2>
-
-                        📈 Profile Completion
-
-                    </h2>
-
-
-                    <div className="progress-bar">
-
-
-                        <div
-
-                            className="progress"
-
-                            style={{
-
-                                width: "60%"
-
-                            }}
-
-                        >
-
-                        </div>
-
-
-                    </div>
-
-
-                    <p>
-
-                        Complete your profile to improve
-
-                        your chances of getting hired.
-
-                    </p>
-
-
-                    <button
-
-                        onClick={() =>
-
-                            navigate("/profile")
-
-                        }
-
-                    >
-
-                        Complete Profile
-
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-    );
+return;
 
 }
+
+
+
+axios.get(
+`/api/students/${id}`
+)
+
+.then((response)=>{
+
+
+console.log(
+"Profile:",
+response.data
+);
+
+
+
+const user = response.data;
+
+
+
+setUserName(
+user.name || "Student"
+);
+
+
+
+setProfilePhoto(
+user.profilePhoto || ""
+);
+
+
+
+setSkills(
+user.skills || []
+);
+
+
+
+
+// update local storage
+
+localStorage.setItem(
+"userName",
+user.name || "Student"
+);
+
+
+
+localStorage.setItem(
+"profilePhoto",
+user.profilePhoto || ""
+);
+
+
+
+localStorage.setItem(
+"skills",
+JSON.stringify(user.skills || [])
+);
+
+
+
+})
+
+.catch((error)=>{
+
+
+console.log(
+
+error.response?.data ||
+
+error.message
+
+);
+
+
+});
+
+
+
+},[]);
+
+
+
+
+
+
+
+
+
+// =============================
+// JOB MATCHING
+// =============================
+
+
+const userSkills = skills.map(skill=>
+
+skill.toLowerCase().trim()
+
+);
+
+
+
+
+const recommendedJobs = jobs.filter(job=>
+
+
+job.skills?.some(jobSkill=>
+
+
+userSkills.some(userSkill=>
+
+
+jobSkill.toLowerCase().includes(userSkill)
+
+||
+
+userSkill.includes(
+jobSkill.toLowerCase()
+)
+
+
+)
+
+
+)
+
+
+);
+
+
+
+
+const displayJobs =
+
+recommendedJobs.length > 0
+
+?
+
+recommendedJobs
+
+:
+
+jobs.slice(0,3);
+
+
+
+
+
+
+
+// =============================
+// APPLICATION COUNT
+// =============================
+
+
+const applications =
+
+JSON.parse(
+
+localStorage.getItem("applications")
+
+)
+
+|| [];
+
+
+
+const submittedCount =
+applications.length;
+
+
+
+const approvedCount =
+
+applications.filter(app=>
+
+app.status==="Approved"
+
+||
+
+app.status==="Selected"
+
+).length;
+
+
+
+const rejectedCount =
+
+applications.filter(app=>
+
+app.status==="Rejected"
+
+).length;
+
+
+
+
+
+
+
+
+return(
+
+
+<div className="student-dashboard">
+
+
+
+
+
+<StudentNavbar
+
+toggleSidebar={toggleSidebar}
+
+userName={userName}
+
+profilePhoto={profilePhoto}
+
+/>
+
+
+
+
+
+
+<StudentSidebar
+
+isOpen={sidebarOpen}
+
+/>
+
+
+
+
+
+
+
+<main
+
+className={
+
+`dashboard-main ${
+sidebarOpen
+
+?
+
+"main-with-sidebar"
+
+:
+
+"main-full"
+
+}`
+
+}
+
+>
+
+
+
+
+
+<section className="dashboard-content">
+
+
+
+
+
+<div className="welcome-banner">
+
+
+
+<div className="welcome-text">
+
+
+
+<p>
+Welcome back,
+</p>
+
+
+
+<h1>
+
+{userName} 👋
+
+</h1>
+
+
+
+<span>
+
+Discover internships and career opportunities
+
+<br/>
+
+that match your skills.
+
+</span>
+
+
+
+
+
+
+<div className="welcome-buttons">
+
+
+<button
+
+className="primary-button"
+
+onClick={()=>navigate("/jobs")}
+
+>
+
+Find Jobs
+
+</button>
+
+
+
+
+
+<button
+
+className="secondary-button"
+
+onClick={()=>navigate("/student/career-resources")}
+
+>
+
+Career Resources
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div className="welcome-image">
+
+
+{
+
+profilePhoto ?
+
+
+<img
+
+src={profilePhoto}
+
+alt="profile"
+
+className="welcome-profile-photo"
+
+/>
+
+
+:
+
+
+<div className="welcome-profile-placeholder">
+
+{
+userName.charAt(0).toUpperCase()
+}
+
+</div>
+
+
+}
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<section className="dashboard-section">
+
+
+<div className="section-header">
+
+
+<h2>
+Recommended For You
+</h2>
+
+
+
+<button
+
+className="see-all-button"
+
+onClick={()=>navigate("/jobs")}
+
+>
+
+See All
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div className="jobs-list">
+
+
+{
+
+displayJobs.map(job=>(
+
+
+<StudentJobcard
+
+key={job.id}
+
+id={job.id}
+
+title={job.title}
+
+company={job.company}
+
+location={job.location}
+
+type={job.type}
+
+time={job.time}
+
+skills={job.skills}
+
+/>
+
+
+))
+
+
+}
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section className="dashboard-section">
+
+
+<div className="section-header">
+
+
+<h2>
+Application Overview
+</h2>
+
+
+
+<button
+
+className="see-all-button"
+
+onClick={()=>navigate("/student/applications")}
+
+>
+
+View Applications
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div className="application-overview">
+
+
+
+<div className="application-box submitted">
+
+<h3>
+{submittedCount}
+</h3>
+
+<p>
+Applications Submitted
+</p>
+
+</div>
+
+
+
+
+
+<div className="application-box approved">
+
+<h3>
+{approvedCount}
+</h3>
+
+<p>
+Approved
+</p>
+
+</div>
+
+
+
+
+
+<div className="application-box rejected">
+
+<h3>
+{rejectedCount}
+</h3>
+
+<p>
+Rejected
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<aside className="dashboard-right">
+
+
+
+
+
+<div className="dashboard-widget">
+
+
+<h2>
+Your Skills
+</h2>
+
+
+
+
+<div className="skills-list">
+
+
+{
+
+skills.length > 0 ?
+
+
+skills.map((skill,index)=>(
+
+
+<span key={index}>
+
+{skill}
+
+</span>
+
+
+))
+
+
+:
+
+
+<p>
+No skills added
+</p>
+
+
+}
+
+
+
+</div>
+
+
+
+
+
+<button
+
+className="widget-button"
+
+onClick={()=>navigate("/student/profile")}
+
+>
+
+Update Skills
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<div className="dashboard-widget">
+
+
+<h2>
+Upcoming Deadlines
+</h2>
+
+
+
+<div className="deadline-item">
+
+<strong>
+Software Engineer Intern
+</strong>
+
+
+<span>
+ABC Technologies
+</span>
+
+
+<b>
+📅 30 Jul 2026
+</b>
+
+
+</div>
+
+
+
+
+<div className="deadline-item">
+
+<strong>
+Data Analyst
+</strong>
+
+
+<span>
+Insight Analytics
+</span>
+
+
+<b>
+📅 05 Aug 2026
+</b>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</aside>
+
+
+
+
+
+
+
+</main>
+
+
+
+</div>
+
+
+);
+
+
+}
+
 
 
 export default StudentDashboard;
