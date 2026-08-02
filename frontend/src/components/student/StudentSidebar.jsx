@@ -27,13 +27,11 @@ path:"/student/dashboard",
 icon:<LayoutDashboard size={22}/>
 },
 
-
 {
 name:"Apply Jobs",
 path:"/jobs",
 icon:<BriefcaseBusiness size={22}/>
 },
-
 
 {
 name:"Saved Jobs",
@@ -41,13 +39,11 @@ path:"/student/saved-jobs",
 icon:<Bookmark size={22}/>
 },
 
-
 {
 name:"Profile",
 path:"/student/profile",
 icon:<User size={22}/>
 },
-
 
 {
 name:"Notifications",
@@ -55,20 +51,17 @@ path:"/student/messages",
 icon:<Bell size={22}/>
 },
 
-
 {
 name:"Career Resources",
 path:"/student/career-resources",
 icon:<BookOpen size={22}/>
 },
 
-
 {
 name:"Settings",
 path:"/student/settings",
 icon:<Settings size={22}/>
 }
-
 
 ];
 
@@ -77,7 +70,6 @@ icon:<Settings size={22}/>
 
 
 return(
-
 
 <aside
 
@@ -88,8 +80,7 @@ isOpen ? "sidebar-open" : ""
 >
 
 
-<div className="sidebar-menu">
-
+<div className="student-sidebar-menu">
 
 
 {
@@ -103,13 +94,15 @@ key={index}
 
 to={item.path}
 
+
 className={({isActive})=>
 
-`sidebar-link ${
+`student-sidebar-link ${
 isActive ? "active" : ""
 }`
 
 }
+
 
 >
 
@@ -118,7 +111,9 @@ isActive ? "active" : ""
 
 
 <span>
+
 {item.name}
+
 </span>
 
 
@@ -127,9 +122,7 @@ isActive ? "active" : ""
 
 ))
 
-
 }
-
 
 
 </div>
@@ -139,11 +132,7 @@ isActive ? "active" : ""
 
 
 
-
-
-<div className="sidebar-bottom">
-
-
+<div className="student-sidebar-bottom">
 
 
 
@@ -183,12 +172,11 @@ size={70}
 
 
 
-
 <NavLink
 
 to="/login"
 
-className="sidebar-link logout-link"
+className="student-sidebar-link logout-link"
 
 >
 
@@ -204,8 +192,6 @@ Logout
 
 
 </NavLink>
-
-
 
 
 

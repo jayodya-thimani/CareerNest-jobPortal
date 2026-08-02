@@ -60,7 +60,6 @@ setSidebarOpen(!sidebarOpen);
 
 
 
-
 // =============================
 // GET USER PROFILE
 // =============================
@@ -78,6 +77,7 @@ if(!id){
 console.log("User ID not found");
 
 return;
+
 }
 
 
@@ -121,6 +121,7 @@ user.skills || []
 
 // update local storage
 
+
 localStorage.setItem(
 "userName",
 user.name || "Student"
@@ -159,9 +160,7 @@ error.message
 });
 
 
-
 },[]);
-
 
 
 
@@ -180,6 +179,7 @@ const userSkills = skills.map(skill=>
 skill.toLowerCase().trim()
 
 );
+
 
 
 
@@ -209,6 +209,7 @@ jobSkill.toLowerCase()
 
 
 );
+
 
 
 
@@ -281,7 +282,6 @@ app.status==="Rejected"
 
 
 
-
 return(
 
 
@@ -306,6 +306,7 @@ profilePhoto={profilePhoto}
 
 
 
+
 <StudentSidebar
 
 isOpen={sidebarOpen}
@@ -318,20 +319,21 @@ isOpen={sidebarOpen}
 
 
 
+
 <main
 
 className={
 
-`dashboard-main ${
+`student-dashboard-main ${
 sidebarOpen
 
 ?
 
-"main-with-sidebar"
+"student-main-with-sidebar"
 
 :
 
-"main-full"
+"student-main-full"
 
 }`
 
@@ -389,6 +391,7 @@ that match your skills.
 <div className="welcome-buttons">
 
 
+
 <button
 
 className="primary-button"
@@ -400,6 +403,8 @@ onClick={()=>navigate("/jobs")}
 Find Jobs
 
 </button>
+
+
 
 
 
@@ -456,14 +461,16 @@ className="welcome-profile-photo"
 <div className="welcome-profile-placeholder">
 
 {
+
 userName.charAt(0).toUpperCase()
-}
-
-</div>
-
 
 }
 
+</div>
+
+
+}
+
 
 
 </div>
@@ -471,6 +478,7 @@ userName.charAt(0).toUpperCase()
 
 
 </div>
+
 
 
 
@@ -482,12 +490,15 @@ userName.charAt(0).toUpperCase()
 <section className="dashboard-section">
 
 
+
 <div className="section-header">
+
 
 
 <h2>
 Recommended For You
 </h2>
+
 
 
 
@@ -505,6 +516,8 @@ See All
 
 
 </div>
+
+
 
 
 
@@ -564,12 +577,15 @@ skills={job.skills}
 <section className="dashboard-section">
 
 
+
 <div className="section-header">
+
 
 
 <h2>
 Application Overview
 </h2>
+
 
 
 
@@ -593,21 +609,31 @@ View Applications
 
 
 
+
+
 <div className="application-overview">
+
+
 
 
 
 <div className="application-box submitted">
 
+
 <h3>
 {submittedCount}
 </h3>
+
 
 <p>
 Applications Submitted
 </p>
 
+
 </div>
+
+
+
 
 
 
@@ -615,15 +641,21 @@ Applications Submitted
 
 <div className="application-box approved">
 
+
 <h3>
 {approvedCount}
 </h3>
+
 
 <p>
 Approved
 </p>
 
+
 </div>
+
+
+
 
 
 
@@ -631,15 +663,20 @@ Approved
 
 <div className="application-box rejected">
 
+
 <h3>
 {rejectedCount}
 </h3>
+
 
 <p>
 Rejected
 </p>
 
+
 </div>
+
+
 
 
 
@@ -648,7 +685,6 @@ Rejected
 
 
 </section>
-
 
 
 
@@ -671,12 +707,14 @@ Rejected
 
 
 
+
 <div className="dashboard-widget">
 
 
 <h2>
 Your Skills
 </h2>
+
 
 
 
@@ -720,6 +758,7 @@ No skills added
 
 
 
+
 <button
 
 className="widget-button"
@@ -741,6 +780,9 @@ Update Skills
 
 
 
+
+
+
 <div className="dashboard-widget">
 
 
@@ -750,7 +792,10 @@ Upcoming Deadlines
 
 
 
+
+
 <div className="deadline-item">
+
 
 <strong>
 Software Engineer Intern
@@ -772,7 +817,10 @@ ABC Technologies
 
 
 
+
+
 <div className="deadline-item">
+
 
 <strong>
 Data Analyst
@@ -793,13 +841,17 @@ Insight Analytics
 
 
 
+
+
 </div>
 
 
 
 
 
+
 </aside>
+
 
 
 

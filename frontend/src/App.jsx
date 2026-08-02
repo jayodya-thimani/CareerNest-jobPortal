@@ -63,44 +63,13 @@ function App() {
 
         style={{
 
-          backgroundColor:
-            theme === "Light"
-              ? "#ffffff"
-              : "#222222",
-
-          color:
-            theme === "Light"
-              ? "#000000"
-              : "#ffffff",
-
           minHeight: "100vh",
 
-          padding: "20px"
+          width: "100%"
 
         }}
 
       >
-
-
-
-        {/* Theme Button */}
-
-        <button onClick={changeTheme}>
-
-          Switch to{" "}
-
-          {theme === "Light"
-            ? "Dark"
-            : "Light"}
-
-          {" "}Mode
-
-        </button>
-
-
-        <hr />
-
-
 
         <Routes>
 
