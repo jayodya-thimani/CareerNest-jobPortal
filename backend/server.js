@@ -3,7 +3,8 @@ require("dotenv").config();//Load environment variables from .env
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const authRoutes=require("./routes/auth");
+const authRoutes = require("./routes/auth");
+const jobsRoutes = require("./routes/jobs");
 const app = express();
 const adminRoutes = require("./routes/admin");
 //const adminStudentRoutes = require("./routes/adminStudents");
@@ -14,8 +15,8 @@ console.log("Your Application Server Started Successfully.");
 app.use(cors());
 app.use(express.json());
 //Authentication routes
-app.use("/api/auth",authRoutes);
-app.use("/api/jobs",require("./routes/jobs"));
+app.use("/api/auth", authRoutes);
+app.use("/api/jobs", jobsRoutes);
 app.use(
 "/api/applications",
 require("./routes/applications")

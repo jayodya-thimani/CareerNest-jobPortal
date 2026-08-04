@@ -18,7 +18,7 @@ api.interceptors.request.use((config) => {
 export const loginUser = (data) => api.post("/auth/login", data);
 export const registerUser = (data) => api.post("/auth/register", data);
 export const getEmployerJobs = () => api.get("/jobs/employer");
-export const createJob = (data) => api.post("/jobs", data);
+export const createJob = (data) => api.post("/jobs/create", data);
 export const updateJobStatus = (id, data) => api.patch(`/jobs/${id}`, data);
 export const deleteJobById = (id) => api.delete(`/jobs/${id}`);
 export const getApplicants = () => api.get("/applicants");
