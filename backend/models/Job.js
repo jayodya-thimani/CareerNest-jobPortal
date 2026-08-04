@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { JOB_TYPES, DEFAULT_JOB_TYPE } = require("../constants/jobTypes");
 
 const jobSchema = new mongoose.Schema(
   {
@@ -23,18 +24,39 @@ const jobSchema = new mongoose.Schema(
     },
 
     salary: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "0",
     },
 
     jobType: {
       type: String,
-      enum: ["Full-Time", "Part-Time", "Internship"],
-      default: "Full-Time",
+      enum: JOB_TYPES,
+      default: DEFAULT_JOB_TYPE,
     },
 
     deadline: {
       type: Date,
+    },
+
+    category: {
+      type: String,
+      default: "Job",
+    },
+
+    experience: {
+      type: String,
+      default: "",
+    },
+
+    requirements: {
+      type: String,
+      default: "",
+    },
+
+    status: {
+      type: String,
+      enum: ["Active", "Closed"],
+      default: "Active",
     },
 
     employer: {
