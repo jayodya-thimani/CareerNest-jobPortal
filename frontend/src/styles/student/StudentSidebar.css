@@ -1,0 +1,241 @@
+.student-sidebar {
+
+  width:280px;
+
+  position:fixed;
+
+  top:74px;
+
+  left:0;
+
+  bottom:0;
+
+  background:white;
+
+  border-right:1px solid #e7edf4;
+
+  padding:35px 24px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  transition:0.3s ease;
+
+  z-index:900;
+
+  transform:translateX(0);
+
+  overflow-y:auto;
+
+}
+
+
+
+/* MENU */
+
+.student-sidebar-menu {
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+}
+
+
+
+
+
+.student-sidebar-link {
+
+  height:49px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+  padding:0 22px;
+
+  color:#1a2942;
+
+  text-decoration:none;
+
+  border-radius:10px;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:0.2s ease;
+
+}
+
+
+
+
+
+.student-sidebar-link:hover {
+
+  background:#edf5ff;
+
+  color:#0969e8;
+
+}
+
+
+
+
+
+.student-sidebar-link.active {
+
+  background:#e9f2ff;
+
+  color:#0969e8;
+
+  font-weight:600;
+
+}
+
+
+
+
+
+/* BOTTOM */
+
+.student-sidebar-bottom {
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:25px;
+
+}
+
+
+
+
+
+.logout-link {
+
+  border-top:1px solid #edf0f5;
+
+  border-radius:0;
+
+  padding-top:25px;
+
+  color:#ef4444;
+
+}
+
+
+
+
+
+/* FUTURE CARD */
+
+.future-card {
+
+  min-height:240px;
+
+  border-radius:15px;
+
+  padding:28px 23px;
+
+  color:white;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:linear-gradient(
+    145deg,
+    #063c91,
+    #0a51b7
+  );
+
+}
+
+
+
+
+
+.future-card h3 {
+
+  font-size:21px;
+
+  line-height:1.35;
+
+  margin:0 0 20px;
+
+}
+
+
+
+
+
+.future-card button {
+
+  border:none;
+
+  background:white;
+
+  color:#0756c7;
+
+  padding:10px 16px;
+
+  border-radius:8px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+}
+
+
+
+
+
+.rocket-icon {
+
+  position:absolute;
+
+  bottom:10px;
+
+  right:15px;
+
+  transform:rotate(-20deg);
+
+  opacity:0.9;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+.student-sidebar {
+
+  transform:translateX(-100%);
+
+}
+
+
+
+.student-sidebar.sidebar-open {
+
+  transform:translateX(0);
+
+}
+
+
+}

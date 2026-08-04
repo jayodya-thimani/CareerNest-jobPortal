@@ -104,13 +104,17 @@ router.post("/register", async (req, res) => {
 
             user: {
 
+                _id: newUser._id,
                 id: newUser._id,
-
                 name: newUser.name,
-
                 email: newUser.email,
-
-                role: newUser.role
+                role: newUser.role,
+                company: newUser.company || "",
+                university: newUser.university || "",
+                degree: newUser.degree || "",
+                skills: newUser.skills || [],
+                profilePhoto: newUser.profilePhoto || newUser.profileImage || "",
+                profileImage: newUser.profilePhoto || newUser.profileImage || ""
 
             }
 
@@ -219,17 +223,17 @@ router.post("/login", async (req,res)=>{
 
             user:{
 
-
+                _id:user._id,
                 id:user._id,
-
                 name:user.name,
-
                 email:user.email,
-
                 role:user.role,
-
-                company:user.company
-
+                company:user.company || "",
+                university:user.university || "",
+                degree:user.degree || "",
+                skills:user.skills || [],
+                profilePhoto:user.profilePhoto || user.profileImage || "",
+                profileImage:user.profilePhoto || user.profileImage || ""
 
             }
 

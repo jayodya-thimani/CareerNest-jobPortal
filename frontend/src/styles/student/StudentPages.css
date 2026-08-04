@@ -1,0 +1,1533 @@
+.student-page {
+  padding: 110px 40px 40px;
+
+  margin-left: 260px;
+
+  min-height: 100vh;
+
+  background: #f5f7fb;
+}
+
+.student-page-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.student-page-header h1 {
+  margin: 0;
+
+  color: #14213d;
+
+  font-size: 30px;
+}
+
+.student-page-header p {
+  color: #718096;
+}
+
+.edit-profile-button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: none;
+
+  background: #053275;
+
+  color: white;
+
+  padding: 12px 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.profile-page-card {
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.profile-cover {
+  height: 150px;
+
+  background: linear-gradient(
+    135deg,
+    #053275,
+    #1263db
+  );
+}
+
+.profile-main {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 0 35px;
+
+  margin-top: -55px;
+}
+
+.profile-photo-wrapper {
+  position: relative;
+}
+
+.profile-photo,
+.profile-photo-placeholder {
+  width: 120px;
+
+  height: 120px;
+
+  border-radius: 50%;
+
+  border: 6px solid white;
+}
+
+.profile-photo {
+  object-fit: cover;
+}
+
+.profile-photo-placeholder {
+  background: #053275;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 45px;
+
+  font-weight: bold;
+}
+
+.photo-upload-button {
+  position: absolute;
+
+  right: 5px;
+
+  bottom: 8px;
+
+  width: 35px;
+
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: #1263db;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.photo-upload-button input {
+  display: none;
+}
+
+.profile-name {
+  margin-top: 55px;
+}
+
+.profile-name h2 {
+  margin: 0;
+
+  color: #14213d;
+}
+
+.profile-name p {
+  color: #718096;
+}
+
+.profile-details {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+
+  padding: 40px 35px;
+}
+
+.profile-detail {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  color: #1263db;
+}
+
+.profile-detail div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.profile-detail span {
+  font-size: 13px;
+
+  color: #718096;
+}
+
+.profile-detail strong {
+  color: #27364d;
+}
+
+.profile-detail input {
+  border: 1px solid #d8e0ea;
+
+  border-radius: 7px;
+
+  padding: 9px;
+
+  min-width: 250px;
+
+  font-size: 14px;
+}
+
+/* ============================= */
+/* CAREER RESOURCES PAGE */
+/* ============================= */
+
+.career-resources-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 45px 50px 60px;
+  box-sizing: border-box;
+}
+
+
+/* PAGE HEADER */
+
+.career-resources-page .student-page-header {
+  margin-bottom: 45px;
+}
+
+.career-resources-page .student-page-header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #053275;
+  margin-bottom: 15px;
+}
+
+.career-resources-page .student-page-header p {
+  max-width: 900px;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #667085;
+}
+
+
+/* RESOURCE GRID */
+
+.resources-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+/* RESOURCE CARD */
+
+.resource-card {
+  min-height: 360px;
+  padding: 35px;
+  background: #ffffff;
+  border: 1px solid #e4e9f0;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+  transition: all 0.3s ease;
+}
+
+
+/* HOVER EFFECT */
+
+.resource-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
+
+  border-color: #b8cbea;
+}
+
+
+/* ICON */
+
+.resource-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #eaf2ff;
+  color: #053275;
+
+  margin-bottom: 25px;
+}
+
+.resource-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+
+/* TITLE */
+
+.resource-card h2 {
+  font-size: 25px;
+  color: #053275;
+
+  margin-bottom: 18px;
+}
+
+
+/* DESCRIPTION */
+
+.resource-card p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #5f6b7a;
+
+  margin: 0;
+}
+
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+
+@media (max-width: 1200px) {
+
+  .resources-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .career-resources-page {
+    padding: 30px 20px;
+  }
+
+  .career-resources-page .student-page-header h1 {
+    font-size: 32px;
+  }
+
+  .career-resources-page .student-page-header p {
+    font-size: 17px;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-card {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .resource-card h2 {
+    font-size: 22px;
+  }
+
+  .resource-card p {
+    font-size: 16px;
+  }
+
+}
+
+  .student-page {
+    margin-left: 0;
+
+    padding: 100px 20px 30px;
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+/* ===============================
+   APPLICATION PAGE
+================================ */
+
+.student-page {
+
+    width:100%;
+
+    min-height:100vh;
+
+    background:#f4f7fc;
+
+    padding:30px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+/* ===============================
+   PAGE HEADER
+================================ */
+
+
+.page-header {
+
+    background:white;
+
+    padding:25px 30px;
+
+    border-radius:18px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+.page-header h1 {
+
+    margin:0;
+
+    color:#053275;
+
+    font-size:32px;
+
+}
+
+
+.page-header p {
+
+    margin-top:10px;
+
+    color:#64748b;
+
+    font-size:18px;
+
+}
+
+
+
+/* ===============================
+   APPLICATION CARD
+================================ */
+
+
+.settings-card {
+
+    background:white;
+
+    width:100%;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+    box-sizing:border-box;
+
+}
+
+
+
+.settings-card h2 {
+
+    color:#053275;
+
+    font-size:26px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* ===============================
+   JOB DETAILS
+================================ */
+
+
+.settings-card p {
+
+    font-size:17px;
+
+    color:#475569;
+
+    margin:10px 0;
+
+    line-height:1.6;
+
+}
+
+
+
+.settings-card p::first-letter {
+
+    color:#053275;
+
+}
+
+
+
+/* ===============================
+   APPLICATION FORM INPUTS
+================================ */
+
+
+.application-input {
+
+
+    width:100%;
+
+    padding:15px 18px;
+
+    margin:10px 0;
+
+    border-radius:12px;
+
+    border:1px solid #d1d5db;
+
+    font-size:16px;
+
+    background:#ffffff;
+
+    box-sizing:border-box;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.application-input:focus {
+
+
+    outline:none;
+
+    border-color:#053275;
+
+    box-shadow:
+    0 0 0 3px rgba(5,50,117,0.15);
+
+
+}
+
+
+
+/* Text Area */
+
+
+textarea.application-input {
+
+
+    resize:none;
+
+    min-height:130px;
+
+
+}
+
+
+
+/* ===============================
+   BUTTONS
+================================ */
+
+
+.save-settings {
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:fit-content;
+
+    padding:14px 30px;
+
+    margin-top:20px;
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+    margin-left:auto;
+
+}
+
+
+
+.save-settings:hover {
+
+
+    background:#15803d;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+.setting-btn {
+
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:13px 28px;
+
+    background:#053275;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.setting-btn:hover {
+
+
+    background:#074aa8;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+/* ===============================
+   SUCCESS MESSAGE CARD
+================================ */
+
+
+.application-success {
+
+
+    background:#ecfdf5;
+
+    border-left:6px solid #16a34a;
+
+    padding:25px;
+
+    border-radius:15px;
+
+
+}
+
+
+
+.application-success h2 {
+
+
+    color:#15803d;
+
+
+}
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+
+@media(max-width:768px){
+
+
+.student-page {
+
+    padding:20px;
+
+}
+
+
+
+.page-header h1 {
+
+    font-size:26px;
+
+}
+
+
+
+.settings-card {
+
+    padding:20px;
+
+}
+
+
+
+.settings-card h2 {
+
+    font-size:22px;
+
+}
+
+
+
+.save-settings,
+
+.setting-btn {
+
+    width:100%;
+
+}
+
+
+}
+/* FILE UPLOAD */
+
+.file-label{
+
+display:block;
+
+margin-top:20px;
+
+margin-bottom:8px;
+
+font-size:17px;
+
+font-weight:600;
+
+color:#053275;
+
+}
+
+
+
+input[type="file"]{
+
+width:100%;
+
+padding:12px;
+
+border:1px dashed #053275;
+
+border-radius:10px;
+
+background:#f8fafc;
+
+cursor:pointer;
+
+}
+
+
+
+.file-name{
+
+margin-top:8px;
+
+color:#16a34a;
+
+font-weight:600;
+
+font-size:15px;
+
+}
+
+
+
+.success-box{
+
+border-left:6px solid #16a34a;
+
+background:#ecfdf5;
+
+}
+
+
+
+.success-box h2{
+
+color:#15803d;
+
+}
+/* ============================= */
+/* SAVED JOBS PAGE */
+/* ============================= */
+
+
+.saved-job-card {
+
+  background:white;
+
+  border-radius:18px;
+
+  padding:30px;
+
+  margin-bottom:25px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:25px;
+
+  width:100%;
+
+  box-shadow:
+  0 8px 25px rgba(0,0,0,0.07);
+
+  border:1px solid #e4e9f0;
+
+  transition:0.3s ease;
+
+}
+
+
+
+.saved-job-card:hover {
+
+  transform:translateY(-5px);
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,0.12);
+
+}
+
+
+
+
+
+/* SAVED JOB ICON */
+
+
+.saved-job-icon {
+
+  width:75px;
+
+  height:75px;
+
+  border-radius:18px;
+
+  background:#eaf2ff;
+
+  color:#053275;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-shrink:0;
+
+}
+
+
+
+
+
+/* JOB INFORMATION */
+
+
+.saved-job-info {
+
+  flex:1;
+
+}
+
+
+
+.saved-job-info h2 {
+
+  margin:0 0 8px;
+
+  color:#053275;
+
+  font-size:25px;
+
+  font-weight:700;
+
+}
+
+
+
+.saved-job-info h3 {
+
+  margin:0 0 15px;
+
+  color:#475569;
+
+  font-size:18px;
+
+}
+
+
+
+.saved-job-info p {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin:8px 0;
+
+  color:#64748b;
+
+  font-size:15px;
+
+  line-height:1.5;
+
+}
+
+
+
+
+
+/* REMOVE BUTTON */
+
+
+.remove-button {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  padding:12px 22px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#fee2e2;
+
+  color:#dc2626;
+
+  font-size:15px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+}
+
+
+
+.remove-button:hover {
+
+  background:#dc2626;
+
+  color:white;
+
+}
+
+
+
+
+
+
+/* EMPTY SAVED JOBS */
+
+
+.saved-empty {
+
+  min-height:350px;
+
+  background:white;
+
+  border-radius:20px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:center;
+
+  text-align:center;
+
+  padding:40px;
+
+  box-shadow:
+  0 8px 25px rgba(0,0,0,0.07);
+
+  color:#64748b;
+
+}
+
+
+
+.saved-empty svg {
+
+  color:#0969e8;
+
+  margin-bottom:20px;
+
+}
+
+
+
+.saved-empty h2 {
+
+  font-size:28px;
+
+  color:#053275;
+
+  margin-bottom:10px;
+
+}
+
+
+
+.saved-empty p {
+
+  font-size:17px;
+
+  color:#718096;
+
+}
+
+
+
+
+
+/* ============================= */
+/* SAVED JOBS RESPONSIVE */
+/* ============================= */
+
+
+@media(max-width:700px){
+
+
+.saved-job-card {
+
+  flex-direction:column;
+
+  align-items:flex-start;
+
+  padding:25px;
+
+}
+
+
+
+.saved-job-info h2 {
+
+  font-size:21px;
+
+}
+
+
+
+.remove-button {
+
+  width:100%;
+
+}
+
+
+
+}
+
+/* ============================= */
+/* NOTIFICATIONS / MESSAGES */
+/* ============================= */
+
+
+.notification-container{
+
+width:100%;
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+
+.notification-card{
+
+
+background:white;
+
+border-radius:18px;
+
+padding:25px;
+
+display:flex;
+
+align-items:flex-start;
+
+gap:20px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.08);
+
+border-left:6px solid #053275;
+
+transition:0.3s ease;
+
+}
+
+
+
+.notification-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+
+.notification-card.approved{
+
+border-left-color:#16a34a;
+
+}
+
+
+
+.notification-card.rejected{
+
+border-left-color:#dc2626;
+
+}
+
+
+
+
+.notification-icon{
+
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#eaf2ff;
+
+color:#053275;
+
+}
+
+
+
+
+.approved .notification-icon{
+
+background:#dcfce7;
+
+color:#16a34a;
+
+}
+
+
+
+.rejected .notification-icon{
+
+background:#fee2e2;
+
+color:#dc2626;
+
+}
+
+
+
+
+
+.notification-content h2{
+
+
+margin:0 0 8px;
+
+font-size:24px;
+
+color:#053275;
+
+}
+
+
+
+
+.notification-content h3{
+
+
+margin:0 0 12px;
+
+font-size:18px;
+
+color:#334155;
+
+}
+
+
+
+
+.notification-content p{
+
+
+font-size:16px;
+
+color:#64748b;
+
+line-height:1.6;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+.notification-content span{
+
+
+display:flex;
+
+align-items:center;
+
+gap:7px;
+
+font-size:14px;
+
+color:#94a3b8;
+
+}
+
+
+
+
+
+.no-notification{
+
+
+background:white;
+
+border-radius:18px;
+
+padding:50px;
+
+text-align:center;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.08);
+
+color:#64748b;
+
+}
+
+
+
+.no-notification svg{
+
+color:#053275;
+
+margin-bottom:15px;
+
+}
+
+
+
+.no-notification h2{
+
+color:#053275;
+
+font-size:24px;
+
+}
+/* SETTINGS PAGE */
+
+
+/* ===========================
+   STUDENT SETTINGS PAGE
+=========================== */
+
+.student-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f4f7fc;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   PAGE HEADER
+=========================== */
+
+.page-header {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.page-header h1 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    color: #053275;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.page-header p {
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 18px;
+}
+
+/* ===========================
+   SETTINGS CONTAINER
+=========================== */
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+/* ===========================
+   SETTINGS CARD
+=========================== */
+
+.settings-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px 30px;
+    min-height: 180px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.settings-card:hover {
+    transform: translateY(-5px);
+}
+
+.settings-card p {
+    margin: 15px 0;
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* ===========================
+   CARD TITLE
+=========================== */
+
+.settings-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #053275;
+}
+
+.settings-title h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* ===========================
+   SETTING OPTIONS
+=========================== */
+
+.setting-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 18px;
+}
+
+.setting-option:last-child {
+    border-bottom: none;
+}
+
+.setting-option label {
+    font-weight: 500;
+    color: #333;
+}
+
+.setting-option input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.setting-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: #053275;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.setting-btn:hover {
+    background: #074aa8;
+    color: #ffffff;
+}
+
+.save-settings {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-settings:hover {
+    background: #15803d;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+    .student-page {
+        padding: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .page-header p {
+        font-size: 16px;
+    }
+
+    .settings-title h2 {
+        font-size: 22px;
+    }
+
+    .setting-option {
+        font-size: 16px;
+    }
+
+    .setting-btn,
+    .save-settings {
+        width: 100%;
+        justify-content: center;
+        font-size: 16px;
+    }
+}

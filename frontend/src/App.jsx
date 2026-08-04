@@ -3,18 +3,24 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { ThemeContext } from "./context/ThemeContext";
 
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Jobs from "./pages/Jobs";
-import Register from "./pages/Register";
+import Login from"./pages/common/Login";
+import Home from "./pages/common/Home";
+import Jobs from "./pages/common/Jobs";
+import Register from "./pages/common/Register";
 
-import ContactUs from "./pages/ContactUs";
-import About from "./pages/About";
-import ForgetPassword from "./pages/ForgetPassword";
+import ContactUs from "./pages/common/ContactUs";
+import About from "./pages/common/About";
+import ForgetPassword from "./pages/common/ForgetPassword";
 
 
 // Dashboard Pages
 import StudentDashboard from "./pages/student/StudentDashboard";
+import SavedJobs from "./pages/student/SavedJobs";
+import StudentProfile from "./pages/student/StudentProfile";
+import Messages from "./pages/student/Messages";
+import CareerResources from "./pages/student/CareerResources";
+import StudentSettings from "./pages/student/StudentSettings";
+import Applications from "./pages/student/Applications";
 import EmployerDashboard from "./pages/employer/EmployerDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
@@ -57,44 +63,13 @@ function App() {
 
         style={{
 
-          backgroundColor:
-            theme === "Light"
-              ? "#ffffff"
-              : "#222222",
-
-          color:
-            theme === "Light"
-              ? "#000000"
-              : "#ffffff",
-
           minHeight: "100vh",
 
-          padding: "20px"
+          width: "100%"
 
         }}
 
       >
-
-
-
-        {/* Theme Button */}
-
-        <button onClick={changeTheme}>
-
-          Switch to{" "}
-
-          {theme === "Light"
-            ? "Dark"
-            : "Light"}
-
-          {" "}Mode
-
-        </button>
-
-
-        <hr />
-
-
 
         <Routes>
 
@@ -153,6 +128,38 @@ function App() {
             <Route
               path="/student/dashboard"
               element={<StudentDashboard />}
+            />
+            <Route
+              path="/student/saved-jobs"
+              element={<SavedJobs />}
+            />
+
+            <Route
+              path="/student/profile"
+              element={<StudentProfile />}
+            />
+
+            <Route
+             path="/student/messages"
+             element={<Messages />}
+            />
+
+            <Route
+            path="/student/career-resources"
+            element={<CareerResources />}
+            />
+
+           <Route
+            path="/student/settings"
+            element={<StudentSettings />}
+            />
+
+
+                {/* Applications */}
+
+            <Route
+                path="/student/applications"
+                element={<Applications />}
             />
 
           </Route>

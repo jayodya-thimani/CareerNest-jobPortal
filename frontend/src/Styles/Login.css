@@ -31,7 +31,7 @@ body{
 
     background-image:
     linear-gradient(rgba(5,50,117,.25),rgba(5,50,117,.25)),
-    url("../assets/background.jpg");
+    url("../../assets/background.jpg");
 
     background-size:cover;
     background-position:center;

@@ -15,6 +15,31 @@ app.use(cors());
 app.use(express.json());
 //Authentication routes
 app.use("/api/auth",authRoutes);
+app.use("/api/jobs",require("./routes/jobs"));
+app.use(
+"/api/applications",
+require("./routes/applications")
+);
+const notificationRoutes =
+require("./routes/notificationRoutes");
+
+
+app.use(
+"/api/notifications",
+notificationRoutes
+);
+app.use(
+"/api/saved-jobs",
+require("./routes/savedJobs")
+);
+app.use(
+"/api/students",
+require("./routes/students")
+);
+app.use(
+"/api/settings",
+require("./routes/settings")
+);
 //Test route
 app.get("/", (req,res)=>{
     res.send("Backend is running");

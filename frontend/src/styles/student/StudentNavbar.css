@@ -1,0 +1,186 @@
+.student-navbar {
+  height: 72px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e5eaf0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+
+  z-index: 1000;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.menu-button,
+.notification-button {
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  color: #536174;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.student-logo {
+  color: #053275;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.notification-button {
+  position: relative;
+}
+
+.notification-dot {
+  width: 7px;
+
+  height: 7px;
+
+  background: #e53935;
+
+  border-radius: 50%;
+
+  position: absolute;
+
+  top: 1px;
+
+  right: 1px;
+}
+
+.navbar-profile {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.navbar-profile-image,
+.navbar-profile-placeholder {
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+}
+
+.navbar-profile-image {
+  object-fit: cover;
+}
+
+.navbar-profile-placeholder {
+  background: #053275;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+.navbar-user-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.navbar-user-info strong {
+  font-size: 14px;
+
+  color: #172b4d;
+}
+
+.navbar-user-info span {
+  font-size: 12px;
+
+  color: #7c8798;
+}
+
+.profile-dropdown {
+  position: absolute;
+
+  right: 0;
+
+  top: 55px;
+
+  width: 170px;
+
+  background: white;
+
+  border: 1px solid #e5eaf0;
+
+  border-radius: 10px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  padding: 8px;
+
+  z-index: 2000;
+}
+
+.profile-dropdown button {
+  width: 100%;
+
+  padding: 11px;
+
+  background: none;
+
+  border: none;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+
+  color: #344054;
+}
+
+.profile-dropdown button:hover {
+  background: #f1f5f9;
+}

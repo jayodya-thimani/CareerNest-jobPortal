@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "../Styles/Home.css";
+import "../../styles/common/Home.css";
 
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
+import Navbar from "../../components/common/Navbar";
+import Footer from "../../components/common/Footer";
 
 function Home() {
   return (
