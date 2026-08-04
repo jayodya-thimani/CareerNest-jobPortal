@@ -40,6 +40,7 @@ import { useNavigate } from "react-router-dom";
 import EmployerSidebar from "../../components/Employer/EmployerSidebar";
 import UserProfile from "../../components/common/UserProfile";
 import { createJob } from "../../api/services/EmployerService";
+import { JOB_TYPE_OPTIONS } from "../../constants/jobTypes";
 import "../../Styles/employer/PostJob.css";
 
 function PostJob() {
@@ -176,8 +177,8 @@ function PostJob() {
             required
           >
             <option value="">Select Job Type</option>
-            <option value="Full Time">Full Time</option>
-            <option value="Part Time">Part Time</option>
+            <option value="Full-Time">Full Time</option>
+            <option value="Part-Time">Part Time</option>
             <option value="Remote">Remote</option>
             <option value="Contract">Contract</option>
           </select>
