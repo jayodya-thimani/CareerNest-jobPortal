@@ -3,7 +3,8 @@
 
 Explore the main interfaces of CareerNest, including the landing page, employer dashboard, job posting form, applicant management, and student job listings.
 
-![CareerNest UI Preview](screenshots/career-nest-ui.png)
+![CareerNest UI Preview](<img width="1312" height="1199" alt="CareerNest Job Portal UI" src="https://github.com/user-attachments/assets/88287e6e-7155-491d-8f20-4c2b9fecee3e" />
+)
 
 
 
