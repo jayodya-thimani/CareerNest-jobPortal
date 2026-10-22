@@ -1,9 +1,11 @@
 
+
 ## 🖥️ User Interface Preview
 
-Explore the main interfaces of CareerNest, including the landing page, employer dashboard, job posting form, applicant management, and student job listings.
+Here is a preview of the CareerNest Job & Internship Portal interface.
 
-![CareerNest UI Preview](CareerNest Job Portal UI.png)
+![CareerNest Job Portal UI](CareerNest%20Job%20Portal%20UI.png)
+
 
 
 
