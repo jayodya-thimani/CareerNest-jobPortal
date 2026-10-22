@@ -1,3 +1,12 @@
+
+## 🖥️ User Interface Preview
+
+Explore the main interfaces of CareerNest, including the landing page, employer dashboard, job posting form, applicant management, and student job listings.
+
+![CareerNest UI Preview](screenshots/career-nest-ui.png)
+
+
+
 # CareerNest – Job & Internship Portal
 
 CareerNest is a web-based job and internship portal developed to connect job seekers with employers through a simple and user-friendly platform. The system allows students and job seekers to explore opportunities, while employers can publish job vacancies, manage listings, and review applications.
